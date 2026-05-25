@@ -21,7 +21,6 @@ body{font-family:'Cormorant Garamond',serif;color:var(--text);background:var(--c
 h1,h2,h3,h4{font-family:'Playfair Display',serif}
 a{text-decoration:none;color:inherit}
 
-/* ===== WELCOME POPUP ===== */
 #welcomeOverlay{position:fixed;inset:0;z-index:9999;background:rgba(0,0,0,0.7);display:flex;align-items:center;justify-content:center;backdrop-filter:blur(8px);opacity:1;transition:opacity 0.5s}
 #welcomeOverlay.hidden{opacity:0;pointer-events:none}
 .welcome-card{background:linear-gradient(135deg,var(--lilac-bg),var(--cream),var(--peach-light));border:2px solid var(--gold);border-radius:24px;padding:48px 40px;max-width:600px;width:90%;text-align:center;position:relative;box-shadow:0 30px 80px rgba(0,0,0,0.3);animation:popIn 0.6s ease-out;max-height:90vh;overflow-y:auto}
@@ -40,15 +39,14 @@ a{text-decoration:none;color:inherit}
 .welcome-btn{margin-top:24px;display:inline-block;padding:14px 48px;background:linear-gradient(135deg,var(--gold),var(--gold-dark));color:#fff;font-family:'Montserrat',sans-serif;font-size:0.85rem;font-weight:600;letter-spacing:2px;text-transform:uppercase;border:none;border-radius:50px;cursor:pointer;transition:all 0.3s;box-shadow:0 4px 20px rgba(201,169,110,0.4)}
 .welcome-btn:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(201,169,110,0.6)}
 
-/* ===== NAVBAR ===== */
 #navbar{position:fixed;top:0;left:0;right:0;z-index:1000;padding:0 24px;transition:all 0.3s}
 #navbar.scrolled{background:rgba(255,249,245,0.95);backdrop-filter:blur(12px);box-shadow:0 2px 20px rgba(0,0,0,0.08)}
 .nav-inner{max-width:1280px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:72px}
 .nav-logo{display:flex;align-items:center;gap:10px;cursor:pointer}
 .nav-logo svg{width:44px;height:44px}
 .nav-logo-text{font-family:'Great Vibes',cursive;font-size:1.5rem;color:var(--gold-dark)}
-.nav-links{display:flex;align-items:center;gap:32px}
-.nav-link{font-family:'Montserrat',sans-serif;font-size:0.8rem;font-weight:500;letter-spacing:1.5px;text-transform:uppercase;color:var(--text);cursor:pointer;position:relative;padding:4px 0;transition:color 0.3s}
+.nav-links{display:flex;align-items:center;gap:24px}
+.nav-link{font-family:'Montserrat',sans-serif;font-size:0.75rem;font-weight:500;letter-spacing:1.5px;text-transform:uppercase;color:var(--text);cursor:pointer;position:relative;padding:4px 0;transition:color 0.3s;white-space:nowrap}
 .nav-link::after{content:'';position:absolute;bottom:-2px;left:0;width:0;height:2px;background:linear-gradient(90deg,var(--gold),var(--lilac));transition:width 0.3s;border-radius:2px}
 .nav-link:hover::after,.nav-link.active::after{width:100%}
 .nav-link:hover,.nav-link.active{color:var(--lilac-dark)}
@@ -58,16 +56,14 @@ a{text-decoration:none;color:inherit}
 .hamburger.open span:nth-child(2){opacity:0}
 .hamburger.open span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
 .mobile-menu{display:none;position:fixed;top:72px;left:0;right:0;background:rgba(255,249,245,0.98);backdrop-filter:blur(12px);padding:24px;box-shadow:0 10px 30px rgba(0,0,0,0.1);z-index:999}
-.mobile-menu.show{display:flex;flex-direction:column;gap:20px;animation:slideIn 0.3s ease}
+.mobile-menu.show{display:flex;flex-direction:column;gap:16px;animation:slideIn 0.3s ease}
 @keyframes slideIn{0%{opacity:0;transform:translateY(-10px)}100%{opacity:1;transform:translateY(0)}}
 .mobile-link{font-family:'Montserrat',sans-serif;font-size:0.85rem;font-weight:500;letter-spacing:1.5px;text-transform:uppercase;padding:12px 0;border-bottom:1px solid var(--lilac-light);cursor:pointer;transition:color 0.3s}
 .mobile-link:hover{color:var(--lilac-dark)}
 
-/* ===== PAGE SYSTEM ===== */
 .page{display:none;min-height:100vh;opacity:0;transition:opacity 0.5s}
 .page.active{display:block;opacity:1}
 
-/* ===== HERO SLIDESHOW ===== */
 .hero{position:relative;height:100vh;overflow:hidden}
 .hero-slide{position:absolute;inset:0;opacity:0;transition:opacity 1.5s ease-in-out}
 .hero-slide.active{opacity:1}
@@ -84,7 +80,6 @@ a{text-decoration:none;color:inherit}
 .hero-dot{width:10px;height:10px;border-radius:50%;background:rgba(255,255,255,0.4);cursor:pointer;transition:all 0.3s;border:none}
 .hero-dot.active{background:var(--gold);box-shadow:0 0 10px var(--gold)}
 
-/* ===== SECTION STYLES ===== */
 .section{padding:80px 24px}
 .section-inner{max-width:1280px;margin:0 auto}
 .section-title{font-size:2.5rem;text-align:center;margin-bottom:8px;color:var(--dark)}
@@ -92,13 +87,12 @@ a{text-decoration:none;color:inherit}
 .ornament{text-align:center;margin:24px 0;color:var(--gold);font-size:1.5rem;letter-spacing:8px}
 .ornament::before,.ornament::after{content:'————';letter-spacing:0;margin:0 12px;opacity:0.4}
 
-/* ===== GALLERY ===== */
 .gallery-section{background:linear-gradient(180deg,var(--cream),var(--lilac-bg),var(--cream))}
-.gallery-slideshow{position:relative;max-width:900px;margin:0 auto;overflow:hidden;border-radius:16px;box-shadow:0 20px 60px rgba(0,0,0,0.15)}
+.gallery-slideshow{position:relative;max-width:1000px;margin:0 auto;overflow:hidden;border-radius:16px;box-shadow:0 20px 60px rgba(0,0,0,0.15)}
 .gallery-track{display:flex;transition:transform 0.6s ease}
 .gallery-slide{min-width:100%;position:relative}
-.gallery-slide img{width:100%;height:500px;object-fit:cover;display:block}
-.gallery-nav{position:absolute;top:50%;transform:translateY(-50%);width:44px;height:44px;background:rgba(255,255,255,0.9);border:none;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 15px rgba(0,0,0,0.15);transition:all 0.3s;z-index:10;color:var(--lilac-dark)}
+.gallery-slide img{width:100%;height:680px;object-fit:cover;display:block}
+.gallery-nav{position:absolute;top:50%;transform:translateY(-50%);width:48px;height:48px;background:rgba(255,255,255,0.9);border:none;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 15px rgba(0,0,0,0.15);transition:all 0.3s;z-index:10;color:var(--lilac-dark)}
 .gallery-nav:hover{background:var(--gold);color:#fff;transform:translateY(-50%) scale(1.1)}
 .gallery-nav.prev{left:16px}
 .gallery-nav.next{right:16px}
@@ -107,9 +101,8 @@ a{text-decoration:none;color:inherit}
 .gallery-thumb.active{border-color:var(--gold);opacity:1}
 .gallery-thumb img{width:100%;height:100%;object-fit:cover}
 
-/* ===== FLIP CARD - FIXED ===== */
 .flip-container{display:flex;flex-direction:column;align-items:center;padding:40px 16px}
-.flip-card{width:380px;height:540px;perspective:1200px;cursor:pointer;-webkit-tap-highlight-color:transparent}
+.flip-card{width:400px;height:570px;perspective:1200px;cursor:pointer;-webkit-tap-highlight-color:transparent}
 .flip-card-inner{position:relative;width:100%;height:100%;transition:transform 0.8s cubic-bezier(0.4,0,0.2,1);transform-style:preserve-3d}
 .flip-card.flipped .flip-card-inner{transform:rotateY(180deg)}
 .flip-card-front,.flip-card-back{position:absolute;top:0;left:0;width:100%;height:100%;backface-visibility:hidden;-webkit-backface-visibility:hidden;border-radius:16px;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,0.15)}
@@ -119,7 +112,22 @@ a{text-decoration:none;color:inherit}
 .download-btn{display:inline-flex;align-items:center;gap:8px;margin-top:20px;padding:12px 28px;background:linear-gradient(135deg,var(--gold),var(--gold-dark));color:#fff;font-family:'Montserrat',sans-serif;font-size:0.7rem;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;border:none;border-radius:50px;cursor:pointer;transition:all 0.3s;box-shadow:0 4px 15px rgba(201,169,110,0.3)}
 .download-btn:hover{transform:translateY(-2px);box-shadow:0 8px 25px rgba(201,169,110,0.5)}
 
-/* ===== FACILITATORS ===== */
+/* ===== BRIDAL PARTY ===== */
+.bridal-party-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:28px;max-width:1100px;margin:0 auto}
+.bridal-member{text-align:center;padding:24px 16px;border-radius:20px;background:#fff;border:1px solid var(--lilac-light);transition:all 0.4s;position:relative;overflow:hidden}
+.bridal-member::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--lilac),var(--gold),var(--peach));transform:scaleX(0);transition:transform 0.4s;transform-origin:left}
+.bridal-member:hover::before{transform:scaleX(1)}
+.bridal-member:hover{transform:translateY(-4px);box-shadow:0 12px 40px rgba(184,160,200,0.2)}
+.bridal-avatar{width:110px;height:110px;border-radius:50%;margin:0 auto 16px;overflow:hidden;border:3px solid var(--gold-light);background:linear-gradient(135deg,var(--lilac-bg),var(--peach-light));display:flex;align-items:center;justify-content:center;position:relative}
+.bridal-avatar img{width:100%;height:100%;object-fit:cover}
+.bridal-avatar-placeholder{color:var(--lilac);opacity:0.5}
+.bridal-role{font-family:'Montserrat',sans-serif;font-size:0.6rem;letter-spacing:2px;text-transform:uppercase;color:var(--gold-dark);margin-bottom:6px}
+.bridal-name{font-family:'Playfair Display',serif;font-size:1.15rem;color:var(--dark);margin-bottom:0}
+.bridal-divider{display:flex;align-items:center;justify-content:center;gap:16px;margin:48px 0 32px}
+.bridal-divider-line{flex:1;max-width:120px;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
+.bridal-divider-text{font-family:'Great Vibes',cursive;font-size:1.6rem;color:var(--lilac-dark);white-space:nowrap}
+.bridal-party-section{background:linear-gradient(180deg,var(--cream),var(--lilac-bg),var(--peach-light),var(--lilac-bg),var(--cream))}
+
 .facilitators-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:20px}
 .facilitator-card{background:#fff;border-radius:16px;padding:28px 20px;text-align:center;border:1px solid var(--lilac-light);transition:all 0.4s;position:relative;overflow:hidden}
 .facilitator-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--lilac),var(--gold),var(--peach));transform:scaleX(0);transition:transform 0.4s;transform-origin:left}
@@ -131,14 +139,12 @@ a{text-decoration:none;color:inherit}
 .facilitator-btn{display:inline-flex;align-items:center;gap:6px;padding:8px 18px;background:transparent;border:1.5px solid var(--lilac);color:var(--lilac-dark);font-family:'Montserrat',sans-serif;font-size:0.65rem;font-weight:500;letter-spacing:1px;text-transform:uppercase;border-radius:50px;cursor:pointer;transition:all 0.3s;text-decoration:none}
 .facilitator-btn:hover{background:linear-gradient(135deg,var(--lilac),var(--lilac-dark));color:#fff;border-color:transparent;transform:scale(1.05);box-shadow:0 4px 15px rgba(184,160,200,0.3)}
 
-/* ===== VENUE CARD ===== */
 .venue-card{background:linear-gradient(135deg,var(--lilac-bg),var(--peach-light));border-radius:20px;padding:32px 24px;text-align:center;border:1px solid var(--gold-light);max-width:600px;margin:40px auto 0}
 .venue-card h4{font-family:'Playfair Display',serif;font-size:1.2rem;color:var(--lilac-dark);margin-bottom:10px}
 .venue-card p{font-size:0.95rem;line-height:1.7;color:var(--text)}
 .venue-card .venue-icon{color:var(--gold);margin-bottom:8px}
 .venue-card .venue-label{font-family:'Montserrat',sans-serif;font-size:0.6rem;letter-spacing:2px;text-transform:uppercase;color:var(--gold-dark);margin-bottom:4px}
 
-/* ===== PASSWORD GATE ===== */
 .password-gate{min-height:100vh;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,var(--lilac-bg),var(--cream),var(--peach-light));padding:24px}
 .password-card{background:#fff;border-radius:24px;padding:48px 40px;max-width:440px;width:100%;text-align:center;box-shadow:0 20px 60px rgba(0,0,0,0.1);border:1px solid var(--gold-light)}
 .password-lock{width:80px;height:80px;background:linear-gradient(135deg,var(--lilac),var(--lilac-dark));border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 24px;color:#fff;box-shadow:0 8px 30px rgba(139,111,168,0.3)}
@@ -155,7 +161,6 @@ a{text-decoration:none;color:inherit}
 .password-error{color:#e74c3c;font-size:0.8rem;font-family:'Montserrat',sans-serif;margin-top:8px;display:none}
 .password-error.show{display:block}
 
-/* ===== FOOTER ===== */
 .site-footer{background:var(--dark);color:rgba(255,255,255,0.7);padding:60px 24px 32px;text-align:center}
 .footer-logo{font-family:'Great Vibes',cursive;font-size:2rem;color:var(--gold);margin-bottom:8px}
 .footer-tagline{font-family:'Cormorant Garamond',serif;font-size:1rem;color:rgba(255,255,255,0.4);margin-bottom:32px}
@@ -164,16 +169,15 @@ a{text-decoration:none;color:inherit}
 .footer-heart{color:var(--peach);font-size:0.8rem;margin:0 4px}
 .footer-copy{font-family:'Montserrat',sans-serif;font-size:0.7rem;letter-spacing:1px;color:rgba(255,255,255,0.3)}
 
-/* ===== BACK TO TOP ===== */
 .back-top{position:fixed;bottom:24px;right:24px;width:48px;height:48px;background:linear-gradient(135deg,var(--gold),var(--gold-dark));color:#fff;border:none;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 15px rgba(201,169,110,0.4);transition:all 0.3s;opacity:0;pointer-events:none;z-index:100}
 .back-top.show{opacity:1;pointer-events:auto}
 .back-top:hover{transform:translateY(-3px);box-shadow:0 8px 25px rgba(201,169,110,0.6)}
 
-/* ===== FADE IN ANIMATION ===== */
 .fade-in{opacity:0;transform:translateY(30px);transition:all 0.8s ease}
 .fade-in.visible{opacity:1;transform:translateY(0)}
 
-/* ===== RESPONSIVE ===== */
+.church-page-content{background:linear-gradient(180deg,var(--cream),var(--lilac-bg),var(--cream),var(--cream))}
+
 @media(max-width:768px){
 .nav-links{display:none}
 .hamburger{display:flex}
@@ -185,7 +189,7 @@ a{text-decoration:none;color:inherit}
 .section-title{font-size:1.8rem}
 .section-subtitle{font-size:1.4rem}
 .facilitators-grid{grid-template-columns:1fr 1fr}
-.gallery-slide img{height:300px}
+.gallery-slide img{height:420px}
 .gallery-thumb{width:44px;height:32px}
 .welcome-card{padding:28px 20px}
 .welcome-card h2{font-size:1.8rem}
@@ -200,23 +204,30 @@ a{text-decoration:none;color:inherit}
 .facilitator-btn{padding:7px 14px;font-size:0.6rem}
 .download-btn{padding:10px 20px;font-size:0.65rem}
 .section{padding:60px 16px}
+.bridal-party-grid{grid-template-columns:repeat(2,1fr);gap:16px}
+.bridal-avatar{width:90px;height:90px}
+.bridal-name{font-size:1rem}
+.bridal-divider-text{font-size:1.3rem}
 }
 @media(max-width:480px){
 .hero-names{font-size:2.5rem}
-.flip-card{width:260px;height:370px}
+.flip-card{width:270px;height:385px}
 .facilitators-grid{grid-template-columns:1fr}
 .section-title{font-size:1.5rem}
 .section-subtitle{font-size:1.2rem}
 .ornament{font-size:1.1rem;letter-spacing:4px}
 .ornament::before,.ornament::after{content:'——';margin:0 6px}
-.gallery-slide img{height:240px}
+.gallery-slide img{height:320px}
 .welcome-card ul{padding:0 10px}
 .password-card h2{font-size:1.3rem}
 .facilitator-icon{width:44px;height:44px}
-.facilitator-icon i{width:20px!important;height:20px!important}
+.facilitator-icon svg{width:20px!important;height:20px!important}
+.bridal-party-grid{grid-template-columns:repeat(2,1fr);gap:12px}
+.bridal-member{padding:16px 10px}
+.bridal-avatar{width:75px;height:75px}
+.bridal-name{font-size:0.9rem}
+.bridal-role{font-size:0.55rem}
 }
-
-.church-page-content{background:linear-gradient(180deg,var(--cream),var(--lilac-bg),var(--cream),var(--cream))}
 </style>
 </head>
 <body>
@@ -256,6 +267,7 @@ a{text-decoration:none;color:inherit}
 <span class="nav-link active" data-page="home" onclick="showPage('home')">Home</span>
 <span class="nav-link" data-page="traditional" onclick="showPage('traditional')">Traditional Wedding</span>
 <span class="nav-link" data-page="church" onclick="showPage('church')">Church Wedding</span>
+<span class="nav-link" data-page="bridal" onclick="showPage('bridal')">Bridal Party</span>
 </div>
 <div class="hamburger" id="hamburger" onclick="toggleMobile()">
 <span></span><span></span><span></span>
@@ -266,18 +278,18 @@ a{text-decoration:none;color:inherit}
 <div class="mobile-link" onclick="showPage('home');toggleMobile()">Home</div>
 <div class="mobile-link" onclick="showPage('traditional');toggleMobile()">Traditional Wedding</div>
 <div class="mobile-link" onclick="showPage('church');toggleMobile()">Church Wedding</div>
+<div class="mobile-link" onclick="showPage('bridal');toggleMobile()">Bridal Party</div>
 </div>
 
 <!-- ===== HOME PAGE ===== -->
 <div id="homePage" class="page active">
 <div class="hero" id="hero">
-<div class="hero-slide active"><img src="https://z-cdn-media.chatglm.cn/files/8e848758-78c0-4935-b494-e55f631a832a.jpeg?auth_key=1879747258-006888b803924aef819ca87286c6b0a4-0-3173945afb3f2da657567b85e632de78" alt="Imogen and Tosin"></div>
+<div class="hero-slide active"><img src="https://z-cdn-media.chatglm.cn/files/61438978-e294-43eb-af70-de21be281424.jpeg?auth_key=1879750873-e54c679a3d3442e68ac3966cc96aede0-0-dbcd3dc886bcce3a62c87c56b0ac6d8d" alt="Imogen and Tosin"></div>
 <div class="hero-slide"><img src="https://z-cdn-media.chatglm.cn/files/48c46411-0fb7-461c-8870-6e8bac849168.jpeg?auth_key=1879747258-4b8b5bff003a4693af9fdf3279f4d81a-0-71414d5b31f1cd1a90b00f03f8b43ac3" alt="Imogen and Tosin"></div>
 <div class="hero-slide"><img src="https://z-cdn-media.chatglm.cn/files/36ca0872-7057-4190-9957-88529b7c6feb.jpeg?auth_key=1879747258-d494a330583243019b7e32c5eb4f5dbb-0-8db8ad9ad7381335d3292d905ffdd286" alt="Imogen and Tosin"></div>
 <div class="hero-slide"><img src="https://z-cdn-media.chatglm.cn/files/871a74ab-148b-40f8-acc7-d1b4204f05f6.jpeg?auth_key=1879747258-af5d33d48c6f4b0a92079cae5f5b6cf3-0-ea8d84a5ba4f8772efe012f1c2bc3850" alt="Imogen and Tosin"></div>
 <div class="hero-slide"><img src="https://z-cdn-media.chatglm.cn/files/1074937-8f97-4118-b6aa-f0e1bf606dd8.jpeg?auth_key=1879747258-2c20a286792841f7b35cdd780dc336bf-0-bd9a4cd597fabf10f27567016edc4a93" alt="Imogen and Tosin"></div>
 <div class="hero-slide"><img src="https://z-cdn-media.chatglm.cn/files/3cf7f17a-14b2-4c4e-83d5-79985f613b93.png?auth_key=1879748729-2ee6bf78000c48d9b68811813c19aab5-0-5b16a1d02c487e43b1053b5013231aae" alt="Imogen and Tosin"></div>
-<div class="hero-slide"><img src="https://z-cdn-media.chatglm.cn/files/460f75f0-ce2d-4c72-bafd-87029cb65345.png?auth_key=1879748729-61ab50531f68416fa20bd043783b5242-0-7c9e8678f92970a3bc7085b2fd7809e9" alt="Imogen and Tosin"></div>
 <div class="hero-overlay">
 <div class="hero-date">Saturday, September 26, 2026</div>
 <div class="hero-names">Imogen <span class="hero-amp">&</span> Tosin</div>
@@ -290,7 +302,7 @@ a{text-decoration:none;color:inherit}
 </div>
 </div>
 
-<!-- Gallery Section -->
+<!-- Gallery -->
 <div class="gallery-section section" id="gallery">
 <div class="section-inner">
 <div class="ornament">✦</div>
@@ -298,13 +310,12 @@ a{text-decoration:none;color:inherit}
 <p class="section-subtitle fade-in">Moments we cherish</p>
 <div class="gallery-slideshow fade-in">
 <div class="gallery-track" id="galleryTrack">
-<div class="gallery-slide"><img src="https://z-cdn-media.chatglm.cn/files/8e848758-78c0-4935-b494-e55f631a832a.jpeg?auth_key=1879747258-006888b803924aef819ca87286c6b0a4-0-3173945afb3f2da657567b85e632de78" alt="Gallery 1"></div>
+<div class="gallery-slide"><img src="https://z-cdn-media.chatglm.cn/files/61438978-e294-43eb-af70-de21be281424.jpeg?auth_key=1879750873-e54c679a3d3442e68ac3966cc96aede0-0-dbcd3dc886bcce3a62c87c56b0ac6d8d" alt="Gallery 1"></div>
 <div class="gallery-slide"><img src="https://z-cdn-media.chatglm.cn/files/48c46411-0fb7-461c-8870-6e8bac849168.jpeg?auth_key=1879747258-4b8b5bff003a4693af9fdf3279f4d81a-0-71414d5b31f1cd1a90b00f03f8b43ac3" alt="Gallery 2"></div>
 <div class="gallery-slide"><img src="https://z-cdn-media.chatglm.cn/files/36ca0872-7057-4190-9957-88529b7c6feb.jpeg?auth_key=1879747258-d494a330583243019b7e32c5eb4f5dbb-0-8db8ad9ad7381335d3292d905ffdd286" alt="Gallery 3"></div>
 <div class="gallery-slide"><img src="https://z-cdn-media.chatglm.cn/files/871a74ab-148b-40f8-acc7-d1b4204f05f6.jpeg?auth_key=1879747258-af5d33d48c6f4b0a92079cae5f5b6cf3-0-ea8d84a5ba4f8772efe012f1c2bc3850" alt="Gallery 4"></div>
 <div class="gallery-slide"><img src="https://z-cdn-media.chatglm.cn/files/1074937-8f97-4118-b6aa-f0e1bf606dd8.jpeg?auth_key=1879747258-2c20a286792841f7b35cdd780dc336bf-0-bd9a4cd597fabf10f27567016edc4a93" alt="Gallery 5"></div>
 <div class="gallery-slide"><img src="https://z-cdn-media.chatglm.cn/files/3cf7f17a-14b2-4c4e-83d5-79985f613b93.png?auth_key=1879748729-2ee6bf78000c48d9b68811813c19aab5-0-5b16a1d02c487e43b1053b5013231aae" alt="Gallery 6"></div>
-<div class="gallery-slide"><img src="https://z-cdn-media.chatglm.cn/files/460f75f0-ce2d-4c72-bafd-87029cb65345.png?auth_key=1879748729-61ab50531f68416fa20bd043783b5242-0-7c9e8678f92970a3bc7085b2fd7809e9" alt="Gallery 7"></div>
 </div>
 <button class="gallery-nav prev" onclick="moveGallery(-1)"><i data-lucide="chevron-left" style="width:20px;height:20px"></i></button>
 <button class="gallery-nav next" onclick="moveGallery(1)"><i data-lucide="chevron-right" style="width:20px;height:20px"></i></button>
@@ -322,7 +333,6 @@ a{text-decoration:none;color:inherit}
 <h2 class="section-title fade-in">Traditional Wedding</h2>
 <p class="section-subtitle fade-in">Celebrating our heritage & love</p>
 
-<!-- Flip Card with real invitation images -->
 <div class="flip-container fade-in">
 <div class="flip-card" id="tradFlipCard" onclick="this.classList.toggle('flipped')">
 <div class="flip-card-inner">
@@ -338,7 +348,6 @@ a{text-decoration:none;color:inherit}
 <a href="#" class="download-btn" onclick="downloadTraditionalPDF(event)"><i data-lucide="download" style="width:14px;height:14px"></i> Download Invitation</a>
 </div>
 
-<!-- Facilitators -->
 <div style="margin-top:60px">
 <div class="ornament">✦</div>
 <h2 class="section-title fade-in">Traditional Wedding Facilitators</h2>
@@ -402,7 +411,6 @@ a{text-decoration:none;color:inherit}
 </div>
 </div>
 
-<!-- Venue -->
 <div class="venue-card fade-in">
 <div class="venue-icon"><i data-lucide="map-pin" style="width:24px;height:24px"></i></div>
 <div class="venue-label">Venue</div>
@@ -416,12 +424,9 @@ a{text-decoration:none;color:inherit}
 
 <!-- ===== CHURCH WEDDING PAGE ===== -->
 <div id="churchPage" class="page">
-<!-- Password Gate -->
 <div class="password-gate" id="passwordGate">
 <div class="password-card">
-<div class="password-lock">
-<i data-lucide="lock" style="width:36px;height:36px"></i>
-</div>
+<div class="password-lock"><i data-lucide="lock" style="width:36px;height:36px"></i></div>
 <h2>Church Wedding</h2>
 <p>This section is password protected. Please enter the password to view the church wedding details.</p>
 <div class="password-input-wrap">
@@ -433,7 +438,6 @@ a{text-decoration:none;color:inherit}
 </div>
 </div>
 
-<!-- Church Content -->
 <div id="churchContent" style="display:none" class="church-page-content">
 <div class="section" style="padding-top:100px">
 <div class="section-inner">
@@ -441,7 +445,6 @@ a{text-decoration:none;color:inherit}
 <h2 class="section-title fade-in">Church Wedding</h2>
 <p class="section-subtitle fade-in">A sacred union before God</p>
 
-<!-- Flip Card with real invitation images -->
 <div class="flip-container fade-in">
 <div class="flip-card" id="churchFlipCard" onclick="this.classList.toggle('flipped')">
 <div class="flip-card-inner">
@@ -457,7 +460,6 @@ a{text-decoration:none;color:inherit}
 <a href="#" class="download-btn" onclick="downloadChurchPDF(event)"><i data-lucide="download" style="width:14px;height:14px"></i> Download Invitation</a>
 </div>
 
-<!-- Facilitators -->
 <div style="margin-top:60px">
 <div class="ornament">✦</div>
 <h2 class="section-title fade-in">Church Wedding Team</h2>
@@ -533,7 +535,6 @@ a{text-decoration:none;color:inherit}
 </div>
 </div>
 
-<!-- Venue Cards -->
 <div class="venue-card fade-in">
 <div class="venue-icon"><i data-lucide="church" style="width:24px;height:24px"></i></div>
 <div class="venue-label">Ceremony Venue</div>
@@ -553,208 +554,292 @@ a{text-decoration:none;color:inherit}
 </div>
 </div>
 
+<!-- ===== BRIDAL PARTY PAGE ===== -->
+<div id="bridalPage" class="page">
+<div class="bridal-party-section section" style="padding-top:100px">
+<div class="section-inner">
+<div class="ornament">✦</div>
+<h2 class="section-title fade-in">Meet the Bridal Party</h2>
+<p class="section-subtitle fade-in">Our closest friends & family</p>
+
+<!-- Maid of Honour -->
+<div class="bridal-divider fade-in">
+<div class="bridal-divider-line"></div>
+<div class="bridal-divider-text">Maid of Honour</div>
+<div class="bridal-divider-line"></div>
+</div>
+<div class="bridal-party-grid fade-in" style="max-width:300px">
+<div class="bridal-member">
+<div class="bridal-avatar">
+<div class="bridal-avatar-placeholder"><i data-lucide="user" style="width:48px;height:48px"></i></div>
+</div>
+<div class="bridal-role">Maid of Honour</div>
+<div class="bridal-name">Emily</div>
+</div>
+</div>
+
+<!-- Best Man -->
+<div class="bridal-divider fade-in">
+<div class="bridal-divider-line"></div>
+<div class="bridal-divider-text">Best Man</div>
+<div class="bridal-divider-line"></div>
+</div>
+<div class="bridal-party-grid fade-in" style="max-width:300px">
+<div class="bridal-member">
+<div class="bridal-avatar">
+<div class="bridal-avatar-placeholder"><i data-lucide="user" style="width:48px;height:48px"></i></div>
+</div>
+<div class="bridal-role">Best Man</div>
+<div class="bridal-name">David</div>
+</div>
+</div>
+
+<!-- Bridesmaids -->
+<div class="bridal-divider fade-in">
+<div class="bridal-divider-line"></div>
+<div class="bridal-divider-text">Bridesmaids</div>
+<div class="bridal-divider-line"></div>
+</div>
+<div class="bridal-party-grid fade-in">
+<div class="bridal-member">
+<div class="bridal-avatar">
+<div class="bridal-avatar-placeholder"><i data-lucide="user" style="width:40px;height:40px"></i></div>
+</div>
+<div class="bridal-role">Bridesmaid</div>
+<div class="bridal-name">Olivia</div>
+</div>
+<div class="bridal-member">
+<div class="bridal-avatar">
+<div class="bridal-avatar-placeholder"><i data-lucide="user" style="width:40px;height:40px"></i></div>
+</div>
+<div class="bridal-role">Bridesmaid</div>
+<div class="bridal-name">Courtney</div>
+</div>
+<div class="bridal-member">
+<div class="bridal-avatar">
+<div class="bridal-avatar-placeholder"><i data-lucide="user" style="width:40px;height:40px"></i></div>
+</div>
+<div class="bridal-role">Bridesmaid</div>
+<div class="bridal-name">Asima</div>
+</div>
+<div class="bridal-member">
+<div class="bridal-avatar">
+<div class="bridal-avatar-placeholder"><i data-lucide="user" style="width:40px;height:40px"></i></div>
+</div>
+<div class="bridal-role">Bridesmaid</div>
+<div class="bridal-name">Kara</div>
+</div>
+</div>
+
+<!-- Groomsmen -->
+<div class="bridal-divider fade-in">
+<div class="bridal-divider-line"></div>
+<div class="bridal-divider-text">Groomsmen</div>
+<div class="bridal-divider-line"></div>
+</div>
+<div class="bridal-party-grid fade-in">
+<div class="bridal-member">
+<div class="bridal-avatar">
+<div class="bridal-avatar-placeholder"><i data-lucide="user" style="width:40px;height:40px"></i></div>
+</div>
+<div class="bridal-role">Groomsman</div>
+<div class="bridal-name">Elisha</div>
+</div>
+<div class="bridal-member">
+<div class="bridal-avatar">
+<div class="bridal-avatar-placeholder"><i data-lucide="user" style="width:40px;height:40px"></i></div>
+</div>
+<div class="bridal-role">Groomsman</div>
+<div class="bridal-name">Julio</div>
+</div>
+<div class="bridal-member">
+<div class="bridal-avatar">
+<div class="bridal-avatar-placeholder"><i data-lucide="user" style="width:40px;height:40px"></i></div>
+</div>
+<div class="bridal-role">Groomsman</div>
+<div class="bridal-name">Matthew</div>
+</div>
+<div class="bridal-member">
+<div class="bridal-avatar">
+<div class="bridal-avatar-placeholder"><i data-lucide="user" style="width:40px;height:40px"></i></div>
+</div>
+<div class="bridal-role">Groomsman</div>
+<div class="bridal-name">Andre</div>
+</div>
+</div>
+
+<!-- Decorator -->
+<div class="bridal-divider fade-in">
+<div class="bridal-divider-line"></div>
+<div class="bridal-divider-text">Decorator</div>
+<div class="bridal-divider-line"></div>
+</div>
+<div class="bridal-party-grid fade-in" style="max-width:300px">
+<div class="bridal-member">
+<div class="bridal-avatar" style="background:linear-gradient(135deg,var(--lilac-bg),var(--gold-light))">
+<div class="bridal-avatar-placeholder"><i data-lucide="flower-2" style="width:40px;height:40px"></i></div>
+</div>
+<div class="bridal-role">Decorator</div>
+<div class="bridal-name">Events4U</div>
+<button class="facilitator-btn" style="margin-top:10px" onclick="window.open('https://www.instagram.com/_eventz4u','_blank')"><i data-lucide="instagram" style="width:12px;height:12px"></i> Instagram</button>
+</div>
+</div>
+
+</div>
+</div>
+</div>
+
 <!-- ===== FOOTER ===== -->
 <footer class="site-footer">
 <div class="footer-rings"><div class="ring"></div><div class="ring"></div></div>
 <div class="footer-logo">Imogen <span class="footer-heart">♥</span> Tosin</div>
 <div class="footer-tagline">September 26, 2026 · Birmingham</div>
-<div style="margin:24px auto;max-width:300px">
-<div style="display:flex;justify-content:center;gap:24px">
-<span style="cursor:pointer;opacity:0.5;transition:opacity 0.3s;font-family:'Montserrat',sans-serif;font-size:0.7rem;letter-spacing:1px;text-transform:uppercase" onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=0.5" onclick="showPage('home')">Home</span>
-<span style="cursor:pointer;opacity:0.5;transition:opacity 0.3s;font-family:'Montserrat',sans-serif;font-size:0.7rem;letter-spacing:1px;text-transform:uppercase" onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=0.5" onclick="showPage('traditional')">Traditional</span>
-<span style="cursor:pointer;opacity:0.5;transition:opacity 0.3s;font-family:'Montserrat',sans-serif;font-size:0.7rem;letter-spacing:1px;text-transform:uppercase" onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=0.5" onclick="showPage('church')">Church</span>
+<div style="margin:24px auto;max-width:400px">
+<div style="display:flex;justify-content:center;gap:20px;flex-wrap:wrap">
+<span style="cursor:pointer;opacity:0.5;transition:opacity 0.3s;font-family:'Montserrat',sans-serif;font-size:0.65rem;letter-spacing:1px;text-transform:uppercase" onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=0.5" onclick="showPage('home')">Home</span>
+<span style="cursor:pointer;opacity:0.5;transition:opacity 0.3s;font-family:'Montserrat',sans-serif;font-size:0.65rem;letter-spacing:1px;text-transform:uppercase" onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=0.5" onclick="showPage('traditional')">Traditional</span>
+<span style="cursor:pointer;opacity:0.5;transition:opacity 0.3s;font-family:'Montserrat',sans-serif;font-size:0.65rem;letter-spacing:1px;text-transform:uppercase" onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=0.5" onclick="showPage('church')">Church</span>
+<span style="cursor:pointer;opacity:0.5;transition:opacity 0.3s;font-family:'Montserrat',sans-serif;font-size:0.65rem;letter-spacing:1px;text-transform:uppercase" onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=0.5" onclick="showPage('bridal')">Bridal Party</span>
 </div>
 </div>
 <div class="footer-copy">© 2026 Imogen & Tosin Wedding. Made with love.</div>
 </footer>
 
-<!-- Back to Top -->
 <button class="back-top" id="backTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">
 <i data-lucide="chevron-up" style="width:22px;height:22px"></i>
 </button>
 
 <script>
-// ===== LUCIDE ICONS =====
 lucide.createIcons();
 
-// ===== WELCOME POPUP =====
-function closeWelcome() {
+function closeWelcome(){
     document.getElementById('welcomeOverlay').classList.add('hidden');
-    document.body.style.overflow = '';
+    document.body.style.overflow='';
 }
-document.body.style.overflow = 'hidden';
+document.body.style.overflow='hidden';
 
-// ===== HERO SLIDESHOW =====
-let currentHeroSlide = 0;
-const heroSlides = document.querySelectorAll('.hero-slide');
-const heroDotsContainer = document.getElementById('heroDots');
-
-heroSlides.forEach((_, i) => {
-    const dot = document.createElement('button');
-    dot.className = 'hero-dot' + (i === 0 ? ' active' : '');
-    dot.onclick = () => goToHeroSlide(i);
+// Hero Slideshow
+let currentHeroSlide=0;
+const heroSlides=document.querySelectorAll('.hero-slide');
+const heroDotsContainer=document.getElementById('heroDots');
+heroSlides.forEach((_,i)=>{
+    const dot=document.createElement('button');
+    dot.className='hero-dot'+(i===0?' active':'');
+    dot.onclick=()=>goToHeroSlide(i);
     heroDotsContainer.appendChild(dot);
 });
-
-function goToHeroSlide(index) {
+function goToHeroSlide(index){
     heroSlides[currentHeroSlide].classList.remove('active');
     heroDotsContainer.children[currentHeroSlide].classList.remove('active');
-    currentHeroSlide = index;
+    currentHeroSlide=index;
     heroSlides[currentHeroSlide].classList.add('active');
     heroDotsContainer.children[currentHeroSlide].classList.add('active');
 }
+setInterval(()=>{goToHeroSlide((currentHeroSlide+1)%heroSlides.length)},5000);
 
-setInterval(() => {
-    goToHeroSlide((currentHeroSlide + 1) % heroSlides.length);
-}, 5000);
-
-// ===== GALLERY SLIDESHOW =====
-let currentGallerySlide = 0;
-const galleryTrack = document.getElementById('galleryTrack');
-const gallerySlides = document.querySelectorAll('.gallery-slide');
-const galleryThumbsContainer = document.getElementById('galleryThumbs');
-
-gallerySlides.forEach((slide, i) => {
-    const thumb = document.createElement('div');
-    thumb.className = 'gallery-thumb' + (i === 0 ? ' active' : '');
-    thumb.innerHTML = `<img src="${slide.querySelector('img').src}" alt="Thumb ${i+1}">`;
-    thumb.onclick = () => goToGallerySlide(i);
+// Gallery Slideshow
+let currentGallerySlide=0;
+const galleryTrack=document.getElementById('galleryTrack');
+const gallerySlides=document.querySelectorAll('.gallery-slide');
+const galleryThumbsContainer=document.getElementById('galleryThumbs');
+gallerySlides.forEach((slide,i)=>{
+    const thumb=document.createElement('div');
+    thumb.className='gallery-thumb'+(i===0?' active':'');
+    thumb.innerHTML=`<img src="${slide.querySelector('img').src}" alt="Thumb ${i+1}">`;
+    thumb.onclick=()=>goToGallerySlide(i);
     galleryThumbsContainer.appendChild(thumb);
 });
-
-function goToGallerySlide(index) {
-    currentGallerySlide = index;
-    galleryTrack.style.transform = `translateX(-${index * 100}%)`;
-    document.querySelectorAll('.gallery-thumb').forEach((t, i) => {
-        t.classList.toggle('active', i === index);
-    });
+function goToGallerySlide(index){
+    currentGallerySlide=index;
+    galleryTrack.style.transform=`translateX(-${index*100}%)`;
+    document.querySelectorAll('.gallery-thumb').forEach((t,i)=>{t.classList.toggle('active',i===index)});
 }
-
-function moveGallery(dir) {
-    let next = currentGallerySlide + dir;
-    if (next < 0) next = gallerySlides.length - 1;
-    if (next >= gallerySlides.length) next = 0;
+function moveGallery(dir){
+    let next=currentGallerySlide+dir;
+    if(next<0)next=gallerySlides.length-1;
+    if(next>=gallerySlides.length)next=0;
     goToGallerySlide(next);
 }
+let galleryAuto=setInterval(()=>moveGallery(1),4000);
+document.querySelector('.gallery-slideshow').addEventListener('mouseenter',()=>clearInterval(galleryAuto));
+document.querySelector('.gallery-slideshow').addEventListener('mouseleave',()=>{galleryAuto=setInterval(()=>moveGallery(1),4000)});
+let touchStartX=0;
+const galleryEl=document.querySelector('.gallery-slideshow');
+galleryEl.addEventListener('touchstart',e=>{touchStartX=e.touches[0].clientX},{passive:true});
+galleryEl.addEventListener('touchend',e=>{const diff=touchStartX-e.changedTouches[0].clientX;if(Math.abs(diff)>50)moveGallery(diff>0?1:-1)},{passive:true});
 
-let galleryAuto = setInterval(() => moveGallery(1), 4000);
-document.querySelector('.gallery-slideshow').addEventListener('mouseenter', () => clearInterval(galleryAuto));
-document.querySelector('.gallery-slideshow').addEventListener('mouseleave', () => {
-    galleryAuto = setInterval(() => moveGallery(1), 4000);
-});
-
-// Touch swipe
-let touchStartX = 0;
-const galleryEl = document.querySelector('.gallery-slideshow');
-galleryEl.addEventListener('touchstart', e => { touchStartX = e.touches[0].clientX; }, {passive: true});
-galleryEl.addEventListener('touchend', e => {
-    const diff = touchStartX - e.changedTouches[0].clientX;
-    if (Math.abs(diff) > 50) moveGallery(diff > 0 ? 1 : -1);
-}, {passive: true});
-
-// ===== PAGE NAVIGATION =====
-function showPage(pageName) {
-    document.querySelectorAll('.page').forEach(p => {
-        p.classList.remove('active');
-        p.style.display = 'none';
-    });
-    const page = document.getElementById(pageName + 'Page');
-    page.style.display = 'block';
-    setTimeout(() => page.classList.add('active'), 10);
-
-    document.querySelectorAll('.nav-link').forEach(l => {
-        l.classList.toggle('active', l.dataset.page === pageName);
-    });
-
-    if (pageName === 'church') {
-        if (!sessionStorage.getItem('churchUnlocked')) {
-            document.getElementById('passwordGate').style.display = 'flex';
-            document.getElementById('churchContent').style.display = 'none';
-        } else {
-            document.getElementById('passwordGate').style.display = 'none';
-            document.getElementById('churchContent').style.display = 'block';
+// Page Navigation
+function showPage(pageName){
+    document.querySelectorAll('.page').forEach(p=>{p.classList.remove('active');p.style.display='none'});
+    const page=document.getElementById(pageName+'Page');
+    page.style.display='block';
+    setTimeout(()=>page.classList.add('active'),10);
+    document.querySelectorAll('.nav-link').forEach(l=>{l.classList.toggle('active',l.dataset.page===pageName)});
+    if(pageName==='church'){
+        if(!sessionStorage.getItem('churchUnlocked')){
+            document.getElementById('passwordGate').style.display='flex';
+            document.getElementById('churchContent').style.display='none';
+        }else{
+            document.getElementById('passwordGate').style.display='none';
+            document.getElementById('churchContent').style.display='block';
         }
     }
-
-    window.scrollTo({top: 0, behavior: 'smooth'});
-    setTimeout(initFadeIn, 100);
+    window.scrollTo({top:0,behavior:'smooth'});
+    setTimeout(initFadeIn,100);
     lucide.createIcons();
 }
 
-// ===== PASSWORD CHECK =====
-function checkPassword() {
-    const input = document.getElementById('passwordInput');
-    const error = document.getElementById('passwordError');
-    if (input.value.toUpperCase() === 'GRACE') {
-        sessionStorage.setItem('churchUnlocked', 'true');
-        document.getElementById('passwordGate').style.display = 'none';
-        document.getElementById('churchContent').style.display = 'block';
-        error.classList.remove('show');
-        input.classList.remove('error');
-        setTimeout(initFadeIn, 100);
-        lucide.createIcons();
-    } else {
-        input.classList.add('error');
-        error.classList.add('show');
-        setTimeout(() => input.classList.remove('error'), 600);
+// Password
+function checkPassword(){
+    const input=document.getElementById('passwordInput');
+    const error=document.getElementById('passwordError');
+    if(input.value.toUpperCase()==='GRACE'){
+        sessionStorage.setItem('churchUnlocked','true');
+        document.getElementById('passwordGate').style.display='none';
+        document.getElementById('churchContent').style.display='block';
+        error.classList.remove('show');input.classList.remove('error');
+        setTimeout(initFadeIn,100);lucide.createIcons();
+    }else{
+        input.classList.add('error');error.classList.add('show');
+        setTimeout(()=>input.classList.remove('error'),600);
     }
 }
-
-function togglePasswordVisibility() {
-    const input = document.getElementById('passwordInput');
-    input.type = input.type === 'password' ? 'text' : 'password';
+function togglePasswordVisibility(){
+    const input=document.getElementById('passwordInput');
+    input.type=input.type==='password'?'text':'password';
 }
 
-// ===== MOBILE MENU =====
-function toggleMobile() {
-    const hamburger = document.getElementById('hamburger');
-    const menu = document.getElementById('mobileMenu');
-    hamburger.classList.toggle('open');
-    menu.classList.toggle('show');
+// Mobile Menu
+function toggleMobile(){
+    document.getElementById('hamburger').classList.toggle('open');
+    document.getElementById('mobileMenu').classList.toggle('show');
 }
 
-// ===== NAVBAR SCROLL =====
-window.addEventListener('scroll', () => {
-    const nav = document.getElementById('navbar');
-    nav.classList.toggle('scrolled', window.scrollY > 50);
-    const btn = document.getElementById('backTop');
-    btn.classList.toggle('show', window.scrollY > 400);
+// Navbar Scroll
+window.addEventListener('scroll',()=>{
+    document.getElementById('navbar').classList.toggle('scrolled',window.scrollY>50);
+    document.getElementById('backTop').classList.toggle('show',window.scrollY>400);
 });
 
-// ===== FADE IN ON SCROLL =====
-function initFadeIn() {
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
-            }
-        });
-    }, {threshold: 0.1});
-    document.querySelectorAll('.fade-in:not(.visible)').forEach(el => observer.observe(el));
+// Fade In
+function initFadeIn(){
+    const observer=new IntersectionObserver(entries=>{entries.forEach(entry=>{if(entry.isIntersecting)entry.target.classList.add('visible')})},{threshold:0.1});
+    document.querySelectorAll('.fade-in:not(.visible)').forEach(el=>observer.observe(el));
 }
 initFadeIn();
 
-// ===== DOWNLOAD INVITATIONS =====
-function downloadTraditionalPDF(e) {
+// Downloads
+function downloadTraditionalPDF(e){
     e.preventDefault();
-    const frontUrl = 'https://z-cdn-media.chatglm.cn/files/8b6e435b-dc33-4a3c-8e99-82e3e2aea0c6.png?auth_key=1879748729-15c53364ea4b43528844b647567441c7-0-03fd22c4a38eac04b461d33e8031369f';
-    const backUrl = 'https://z-cdn-media.chatglm.cn/files/17ba89c0-a75c-45d1-a9da-e08e696f1588.png?auth_key=1879748729-2473ac4173d04b65936d2bf103b36f87-0-e93619657a593d4ef2db0505a0bfb2b2';
-    
-    // Open images in new tabs for user to save
-    window.open(frontUrl, '_blank');
-    setTimeout(() => window.open(backUrl, '_blank'), 500);
+    window.open('https://z-cdn-media.chatglm.cn/files/8b6e435b-dc33-4a3c-8e99-82e3e2aea0c6.png?auth_key=1879748729-15c53364ea4b43528844b647567441c7-0-03fd22c4a38eac04b461d33e8031369f','_blank');
+    setTimeout(()=>window.open('https://z-cdn-media.chatglm.cn/files/17ba89c0-a75c-45d1-a9da-e08e696f1588.png?auth_key=1879748729-2473ac4173d04b65936d2bf103b36f87-0-e93619657a593d4ef2db0505a0bfb2b2','_blank'),500);
+}
+function downloadChurchPDF(e){
+    e.preventDefault();
+    window.open('https://z-cdn-media.chatglm.cn/files/8842880c-73d1-40f4-acc3-7b06c508f8db.png?auth_key=1879748729-57c560b2c58c4ee9af178f3c2ad9b422-0-f0923d1d0496589bf1ad7c8b8c9812e7','_blank');
+    setTimeout(()=>window.open('https://z-cdn-media.chatglm.cn/files/58426a6a-6a30-4c03-a034-72d350e81885.png?auth_key=1879748729-3fcef5a3882041368dfee5efd3d5849a-0-6e76b410fb1b568d861c283f0eca88c3','_blank'),500);
 }
 
-function downloadChurchPDF(e) {
-    e.preventDefault();
-    const frontUrl = 'https://z-cdn-media.chatglm.cn/files/8842880c-73d1-40f4-acc3-7b06c508f8db.png?auth_key=1879748729-57c560b2c58c4ee9af178f3c2ad9b422-0-f0923d1d0496589bf1ad7c8b8c9812e7';
-    const backUrl = 'https://z-cdn-media.chatglm.cn/files/58426a6a-6a30-4c03-a034-72d350e81885.png?auth_key=1879748729-3fcef5a3882041368dfee5efd3d5849a-0-6e76b410fb1b568d861c283f0eca88c3';
-    
-    window.open(frontUrl, '_blank');
-    setTimeout(() => window.open(backUrl, '_blank'), 500);
-}
-
-// ===== INIT =====
 showPage('home');
 </script>
 </body>
