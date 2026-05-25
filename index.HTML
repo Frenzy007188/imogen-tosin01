@@ -45,8 +45,8 @@ a{text-decoration:none;color:inherit}
 .nav-logo{display:flex;align-items:center;gap:10px;cursor:pointer}
 .nav-logo svg{width:44px;height:44px}
 .nav-logo-text{font-family:'Great Vibes',cursive;font-size:1.5rem;color:var(--gold-dark)}
-.nav-links{display:flex;align-items:center;gap:24px}
-.nav-link{font-family:'Montserrat',sans-serif;font-size:0.75rem;font-weight:500;letter-spacing:1.5px;text-transform:uppercase;color:var(--text);cursor:pointer;position:relative;padding:4px 0;transition:color 0.3s;white-space:nowrap}
+.nav-links{display:flex;align-items:center;gap:20px}
+.nav-link{font-family:'Montserrat',sans-serif;font-size:0.72rem;font-weight:500;letter-spacing:1.5px;text-transform:uppercase;color:var(--text);cursor:pointer;position:relative;padding:4px 0;transition:color 0.3s;white-space:nowrap}
 .nav-link::after{content:'';position:absolute;bottom:-2px;left:0;width:0;height:2px;background:linear-gradient(90deg,var(--gold),var(--lilac));transition:width 0.3s;border-radius:2px}
 .nav-link:hover::after,.nav-link.active::after{width:100%}
 .nav-link:hover,.nav-link.active{color:var(--lilac-dark)}
@@ -96,10 +96,49 @@ a{text-decoration:none;color:inherit}
 .gallery-nav:hover{background:var(--gold);color:#fff;transform:translateY(-50%) scale(1.1)}
 .gallery-nav.prev{left:16px}
 .gallery-nav.next{right:16px}
-.gallery-thumbs{display:flex;justify-content:center;gap:8px;margin-top:20px;flex-wrap:wrap}
-.gallery-thumb{width:60px;height:44px;border-radius:6px;overflow:hidden;cursor:pointer;border:2px solid transparent;transition:all 0.3s;opacity:0.6;flex-shrink:0}
-.gallery-thumb.active{border-color:var(--gold);opacity:1}
-.gallery-thumb img{width:100%;height:100%;object-fit:cover}
+
+/* ===== MUSIC PLAYER ===== */
+.music-player{max-width:1000px;margin:32px auto 0;background:linear-gradient(135deg,#2D2D2D,#3D2D4D,#2D2D2D);border-radius:20px;padding:28px 32px;box-shadow:0 12px 40px rgba(0,0,0,0.2);position:relative;overflow:hidden}
+.music-player::before{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23C9A96E' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");pointer-events:none}
+.music-header{display:flex;align-items:center;gap:16px;margin-bottom:20px;position:relative;z-index:1}
+.music-vinyl{width:56px;height:56px;border-radius:50%;background:radial-gradient(circle,#1a1a1a 30%,#333 32%,#1a1a1a 50%,#333 52%,#1a1a1a 70%,#444 72%,#1a1a1a 100%);display:flex;align-items:center;justify-content:center;flex-shrink:0;animation:spin 3s linear infinite;animation-play-state:paused}
+.music-vinyl.spinning{animation-play-state:running}
+.music-vinyl::after{content:'';width:12px;height:12px;border-radius:50%;background:var(--gold)}
+@keyframes spin{0%{transform:rotate(0deg)}100%{transform:rotate(360deg)}}
+.music-info{flex:1}
+.music-title{font-family:'Playfair Display',serif;font-size:1.1rem;color:#fff;margin-bottom:2px}
+.music-artist{font-family:'Montserrat',sans-serif;font-size:0.7rem;letter-spacing:1px;color:var(--gold-light);text-transform:uppercase}
+.music-note{color:var(--peach);font-size:1.4rem;animation:pulse-note 2s ease infinite}
+@keyframes pulse-note{0%,100%{opacity:0.6;transform:scale(1)}50%{opacity:1;transform:scale(1.1)}}
+.music-upload{position:relative;z-index:1;margin-bottom:16px}
+.music-upload-btn{display:flex;align-items:center;gap:8px;padding:10px 20px;background:linear-gradient(135deg,var(--gold),var(--gold-dark));color:#fff;font-family:'Montserrat',sans-serif;font-size:0.7rem;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;border:none;border-radius:50px;cursor:pointer;transition:all 0.3s;box-shadow:0 4px 15px rgba(201,169,110,0.3)}
+.music-upload-btn:hover{transform:translateY(-2px);box-shadow:0 8px 25px rgba(201,169,110,0.5)}
+.music-controls{display:flex;align-items:center;gap:20px;position:relative;z-index:1}
+.music-play-btn{width:48px;height:48px;border-radius:50%;background:linear-gradient(135deg,var(--gold),var(--gold-dark));border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;color:#fff;transition:all 0.3s;box-shadow:0 4px 20px rgba(201,169,110,0.4);flex-shrink:0}
+.music-play-btn:hover{transform:scale(1.1);box-shadow:0 6px 25px rgba(201,169,110,0.6)}
+.music-play-btn:disabled{opacity:0.4;cursor:not-allowed;transform:none}
+.music-progress-wrap{flex:1;display:flex;flex-direction:column;gap:4px}
+.music-progress-bar{width:100%;height:4px;background:rgba(255,255,255,0.15);border-radius:4px;cursor:pointer;position:relative;overflow:hidden}
+.music-progress-fill{height:100%;background:linear-gradient(90deg,var(--gold),var(--peach));border-radius:4px;width:0%;transition:width 0.1s linear}
+.music-times{display:flex;justify-content:space-between}
+.music-time{font-family:'Montserrat',sans-serif;font-size:0.6rem;color:rgba(255,255,255,0.4);letter-spacing:0.5px}
+.music-volume-wrap{display:flex;align-items:center;gap:8px;flex-shrink:0}
+.music-volume-icon{color:rgba(255,255,255,0.5);cursor:pointer;transition:color 0.3s}
+.music-volume-icon:hover{color:var(--gold)}
+.music-volume{width:70px;height:4px;-webkit-appearance:none;appearance:none;background:rgba(255,255,255,0.15);border-radius:4px;outline:none;cursor:pointer}
+.music-volume::-webkit-slider-thumb{-webkit-appearance:none;width:12px;height:12px;border-radius:50%;background:var(--gold);cursor:pointer}
+.music-volume::-moz-range-thumb{width:12px;height:12px;border-radius:50%;background:var(--gold);cursor:pointer;border:none}
+.music-song-name{font-family:'Montserrat',sans-serif;font-size:0.65rem;color:var(--peach);letter-spacing:1px;text-transform:uppercase;margin-top:4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:300px}
+.music-placeholder-text{font-family:'Montserrat',sans-serif;font-size:0.7rem;color:rgba(255,255,255,0.3);letter-spacing:0.5px;font-style:italic}
+
+/* Floating mini player */
+.mini-player{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:linear-gradient(135deg,#2D2D2D,#3D2D4D);border-radius:50px;padding:10px 20px;display:flex;align-items:center;gap:12px;box-shadow:0 8px 30px rgba(0,0,0,0.3);z-index:500;opacity:0;pointer-events:none;transition:all 0.4s;border:1px solid rgba(201,169,110,0.3)}
+.mini-player.show{opacity:1;pointer-events:auto}
+.mini-play{width:36px;height:36px;border-radius:50%;background:var(--gold);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;color:#fff;transition:all 0.3s}
+.mini-play:hover{transform:scale(1.1)}
+.mini-info{display:flex;flex-direction:column}
+.mini-title{font-family:'Montserrat',sans-serif;font-size:0.65rem;color:#fff;letter-spacing:0.5px}
+.mini-artist{font-family:'Montserrat',sans-serif;font-size:0.55rem;color:var(--gold-light);letter-spacing:0.5px}
 
 .flip-container{display:flex;flex-direction:column;align-items:center;padding:40px 16px}
 .flip-card{width:400px;height:570px;perspective:1200px;cursor:pointer;-webkit-tap-highlight-color:transparent}
@@ -112,21 +151,25 @@ a{text-decoration:none;color:inherit}
 .download-btn{display:inline-flex;align-items:center;gap:8px;margin-top:20px;padding:12px 28px;background:linear-gradient(135deg,var(--gold),var(--gold-dark));color:#fff;font-family:'Montserrat',sans-serif;font-size:0.7rem;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;border:none;border-radius:50px;cursor:pointer;transition:all 0.3s;box-shadow:0 4px 15px rgba(201,169,110,0.3)}
 .download-btn:hover{transform:translateY(-2px);box-shadow:0 8px 25px rgba(201,169,110,0.5)}
 
-/* ===== BRIDAL PARTY ===== */
-.bridal-party-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:28px;max-width:1100px;margin:0 auto}
-.bridal-member{text-align:center;padding:24px 16px;border-radius:20px;background:#fff;border:1px solid var(--lilac-light);transition:all 0.4s;position:relative;overflow:hidden}
-.bridal-member::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--lilac),var(--gold),var(--peach));transform:scaleX(0);transition:transform 0.4s;transform-origin:left}
-.bridal-member:hover::before{transform:scaleX(1)}
-.bridal-member:hover{transform:translateY(-4px);box-shadow:0 12px 40px rgba(184,160,200,0.2)}
-.bridal-avatar{width:110px;height:110px;border-radius:50%;margin:0 auto 16px;overflow:hidden;border:3px solid var(--gold-light);background:linear-gradient(135deg,var(--lilac-bg),var(--peach-light));display:flex;align-items:center;justify-content:center;position:relative}
-.bridal-avatar img{width:100%;height:100%;object-fit:cover}
-.bridal-avatar-placeholder{color:var(--lilac);opacity:0.5}
-.bridal-role{font-family:'Montserrat',sans-serif;font-size:0.6rem;letter-spacing:2px;text-transform:uppercase;color:var(--gold-dark);margin-bottom:6px}
-.bridal-name{font-family:'Playfair Display',serif;font-size:1.15rem;color:var(--dark);margin-bottom:0}
+/* ===== BRIDAL PARTY REDESIGN ===== */
+.bridal-party-section{background:linear-gradient(180deg,var(--cream),var(--lilac-bg),var(--peach-light),var(--lilac-bg),var(--cream))}
+.bridal-featured-row{display:flex;justify-content:center;gap:32px;flex-wrap:wrap;margin-bottom:40px}
+.bridal-card{background:#fff;border-radius:24px;padding:32px 28px 28px;text-align:center;border:1px solid var(--lilac-light);transition:all 0.4s;position:relative;overflow:hidden;width:240px}
+.bridal-card::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--lilac),var(--gold),var(--peach));transform:scaleX(0);transition:transform 0.4s;transform-origin:left}
+.bridal-card:hover::before{transform:scaleX(1)}
+.bridal-card:hover{transform:translateY(-6px);box-shadow:0 16px 50px rgba(184,160,200,0.25)}
+.bridal-photo{width:160px;height:160px;border-radius:50%;margin:0 auto 20px;overflow:hidden;border:4px solid var(--gold-light);background:linear-gradient(135deg,var(--lilac-bg),var(--peach-light));display:flex;align-items:center;justify-content:center;position:relative;box-shadow:0 8px 30px rgba(184,160,200,0.2)}
+.bridal-photo img{width:100%;height:100%;object-fit:cover}
+.bridal-photo-placeholder{width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;color:var(--lilac);opacity:0.35;gap:4px}
+.bridal-photo-placeholder span{font-family:'Montserrat',sans-serif;font-size:0.55rem;letter-spacing:1px;text-transform:uppercase}
+.bridal-card-role{font-family:'Montserrat',sans-serif;font-size:0.6rem;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold-dark);margin-bottom:6px}
+.bridal-card-name{font-family:'Playfair Display',serif;font-size:1.3rem;color:var(--dark);margin-bottom:0}
+.bridal-card-link{display:inline-flex;align-items:center;gap:6px;margin-top:10px;padding:7px 16px;background:transparent;border:1.5px solid var(--lilac);color:var(--lilac-dark);font-family:'Montserrat',sans-serif;font-size:0.6rem;font-weight:500;letter-spacing:1px;text-transform:uppercase;border-radius:50px;cursor:pointer;transition:all 0.3s;text-decoration:none}
+.bridal-card-link:hover{background:linear-gradient(135deg,var(--lilac),var(--lilac-dark));color:#fff;border-color:transparent;transform:scale(1.05)}
 .bridal-divider{display:flex;align-items:center;justify-content:center;gap:16px;margin:48px 0 32px}
 .bridal-divider-line{flex:1;max-width:120px;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
 .bridal-divider-text{font-family:'Great Vibes',cursive;font-size:1.6rem;color:var(--lilac-dark);white-space:nowrap}
-.bridal-party-section{background:linear-gradient(180deg,var(--cream),var(--lilac-bg),var(--peach-light),var(--lilac-bg),var(--cream))}
+.bridal-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;max-width:1100px;margin:0 auto}
 
 .facilitators-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:20px}
 .facilitator-card{background:#fff;border-radius:16px;padding:28px 20px;text-align:center;border:1px solid var(--lilac-light);transition:all 0.4s;position:relative;overflow:hidden}
@@ -175,7 +218,6 @@ a{text-decoration:none;color:inherit}
 
 .fade-in{opacity:0;transform:translateY(30px);transition:all 0.8s ease}
 .fade-in.visible{opacity:1;transform:translateY(0)}
-
 .church-page-content{background:linear-gradient(180deg,var(--cream),var(--lilac-bg),var(--cream),var(--cream))}
 
 @media(max-width:768px){
@@ -190,23 +232,23 @@ a{text-decoration:none;color:inherit}
 .section-subtitle{font-size:1.4rem}
 .facilitators-grid{grid-template-columns:1fr 1fr}
 .gallery-slide img{height:420px}
-.gallery-thumb{width:44px;height:32px}
 .welcome-card{padding:28px 20px}
 .welcome-card h2{font-size:1.8rem}
 .welcome-card p{font-size:0.9rem}
 .welcome-card ul li{font-size:0.85rem}
 .password-card{padding:32px 20px}
 .venue-card{padding:24px 16px}
-.venue-card h4{font-size:1.05rem}
-.venue-card p{font-size:0.85rem}
 .facilitator-card{padding:20px 14px}
-.facilitator-name{font-size:0.95rem}
-.facilitator-btn{padding:7px 14px;font-size:0.6rem}
 .download-btn{padding:10px 20px;font-size:0.65rem}
 .section{padding:60px 16px}
-.bridal-party-grid{grid-template-columns:repeat(2,1fr);gap:16px}
-.bridal-avatar{width:90px;height:90px}
-.bridal-name{font-size:1rem}
+.bridal-featured-row{gap:20px}
+.bridal-card{width:200px;padding:24px 16px 20px}
+.bridal-photo{width:130px;height:130px}
+.bridal-card-name{font-size:1.1rem}
+.bridal-grid{grid-template-columns:repeat(2,1fr);gap:16px}
+.music-player{padding:20px 16px;margin-top:24px}
+.music-controls{gap:12px}
+.music-volume{width:50px}
 .bridal-divider-text{font-size:1.3rem}
 }
 @media(max-width:480px){
@@ -217,16 +259,21 @@ a{text-decoration:none;color:inherit}
 .section-subtitle{font-size:1.2rem}
 .ornament{font-size:1.1rem;letter-spacing:4px}
 .ornament::before,.ornament::after{content:'——';margin:0 6px}
-.gallery-slide img{height:320px}
-.welcome-card ul{padding:0 10px}
+.gallery-slide img{height:300px}
 .password-card h2{font-size:1.3rem}
-.facilitator-icon{width:44px;height:44px}
-.facilitator-icon svg{width:20px!important;height:20px!important}
-.bridal-party-grid{grid-template-columns:repeat(2,1fr);gap:12px}
-.bridal-member{padding:16px 10px}
-.bridal-avatar{width:75px;height:75px}
-.bridal-name{font-size:0.9rem}
-.bridal-role{font-size:0.55rem}
+.bridal-featured-row{flex-direction:column;align-items:center}
+.bridal-card{width:75%;max-width:260px}
+.bridal-photo{width:140px;height:140px}
+.bridal-grid{grid-template-columns:repeat(2,1fr);gap:12px}
+.bridal-card{padding:18px 12px 16px}
+.bridal-photo{width:100px;height:100px}
+.bridal-card-name{font-size:1rem}
+.music-player{border-radius:16px}
+.music-header{gap:12px}
+.music-vinyl{width:44px;height:44px}
+.music-title{font-size:0.95rem}
+.music-volume-wrap{display:none}
+.mini-player{padding:8px 16px;gap:8px;border-radius:40px}
 }
 </style>
 </head>
@@ -285,10 +332,9 @@ a{text-decoration:none;color:inherit}
 <div id="homePage" class="page active">
 <div class="hero" id="hero">
 <div class="hero-slide active"><img src="https://z-cdn-media.chatglm.cn/files/61438978-e294-43eb-af70-de21be281424.jpeg?auth_key=1879750873-e54c679a3d3442e68ac3966cc96aede0-0-dbcd3dc886bcce3a62c87c56b0ac6d8d" alt="Imogen and Tosin"></div>
-<div class="hero-slide"><img src="https://z-cdn-media.chatglm.cn/files/48c46411-0fb7-461c-8870-6e8bac849168.jpeg?auth_key=1879747258-4b8b5bff003a4693af9fdf3279f4d81a-0-71414d5b31f1cd1a90b00f03f8b43ac3" alt="Imogen and Tosin"></div>
+<div class="hero-slide"><img src="https://z-cdn-media.chatglm.cn/files/8e848758-78c0-4935-b494-e55f631a832a.jpeg?auth_key=1879747258-006888b803924aef819ca87286c6b0a4-0-3173945afb3f2da657567b85e632de78" alt="Imogen and Tosin"></div>
 <div class="hero-slide"><img src="https://z-cdn-media.chatglm.cn/files/36ca0872-7057-4190-9957-88529b7c6feb.jpeg?auth_key=1879747258-d494a330583243019b7e32c5eb4f5dbb-0-8db8ad9ad7381335d3292d905ffdd286" alt="Imogen and Tosin"></div>
 <div class="hero-slide"><img src="https://z-cdn-media.chatglm.cn/files/871a74ab-148b-40f8-acc7-d1b4204f05f6.jpeg?auth_key=1879747258-af5d33d48c6f4b0a92079cae5f5b6cf3-0-ea8d84a5ba4f8772efe012f1c2bc3850" alt="Imogen and Tosin"></div>
-<div class="hero-slide"><img src="https://z-cdn-media.chatglm.cn/files/1074937-8f97-4118-b6aa-f0e1bf606dd8.jpeg?auth_key=1879747258-2c20a286792841f7b35cdd780dc336bf-0-bd9a4cd597fabf10f27567016edc4a93" alt="Imogen and Tosin"></div>
 <div class="hero-slide"><img src="https://z-cdn-media.chatglm.cn/files/3cf7f17a-14b2-4c4e-83d5-79985f613b93.png?auth_key=1879748729-2ee6bf78000c48d9b68811813c19aab5-0-5b16a1d02c487e43b1053b5013231aae" alt="Imogen and Tosin"></div>
 <div class="hero-overlay">
 <div class="hero-date">Saturday, September 26, 2026</div>
@@ -302,7 +348,7 @@ a{text-decoration:none;color:inherit}
 </div>
 </div>
 
-<!-- Gallery -->
+<!-- Gallery + Music Player -->
 <div class="gallery-section section" id="gallery">
 <div class="section-inner">
 <div class="ornament">✦</div>
@@ -311,16 +357,54 @@ a{text-decoration:none;color:inherit}
 <div class="gallery-slideshow fade-in">
 <div class="gallery-track" id="galleryTrack">
 <div class="gallery-slide"><img src="https://z-cdn-media.chatglm.cn/files/61438978-e294-43eb-af70-de21be281424.jpeg?auth_key=1879750873-e54c679a3d3442e68ac3966cc96aede0-0-dbcd3dc886bcce3a62c87c56b0ac6d8d" alt="Gallery 1"></div>
-<div class="gallery-slide"><img src="https://z-cdn-media.chatglm.cn/files/48c46411-0fb7-461c-8870-6e8bac849168.jpeg?auth_key=1879747258-4b8b5bff003a4693af9fdf3279f4d81a-0-71414d5b31f1cd1a90b00f03f8b43ac3" alt="Gallery 2"></div>
+<div class="gallery-slide"><img src="https://z-cdn-media.chatglm.cn/files/8e848758-78c0-4935-b494-e55f631a832a.jpeg?auth_key=1879747258-006888b803924aef819ca87286c6b0a4-0-3173945afb3f2da657567b85e632de78" alt="Gallery 2"></div>
 <div class="gallery-slide"><img src="https://z-cdn-media.chatglm.cn/files/36ca0872-7057-4190-9957-88529b7c6feb.jpeg?auth_key=1879747258-d494a330583243019b7e32c5eb4f5dbb-0-8db8ad9ad7381335d3292d905ffdd286" alt="Gallery 3"></div>
 <div class="gallery-slide"><img src="https://z-cdn-media.chatglm.cn/files/871a74ab-148b-40f8-acc7-d1b4204f05f6.jpeg?auth_key=1879747258-af5d33d48c6f4b0a92079cae5f5b6cf3-0-ea8d84a5ba4f8772efe012f1c2bc3850" alt="Gallery 4"></div>
-<div class="gallery-slide"><img src="https://z-cdn-media.chatglm.cn/files/1074937-8f97-4118-b6aa-f0e1bf606dd8.jpeg?auth_key=1879747258-2c20a286792841f7b35cdd780dc336bf-0-bd9a4cd597fabf10f27567016edc4a93" alt="Gallery 5"></div>
-<div class="gallery-slide"><img src="https://z-cdn-media.chatglm.cn/files/3cf7f17a-14b2-4c4e-83d5-79985f613b93.png?auth_key=1879748729-2ee6bf78000c48d9b68811813c19aab5-0-5b16a1d02c487e43b1053b5013231aae" alt="Gallery 6"></div>
+<div class="gallery-slide"><img src="https://z-cdn-media.chatglm.cn/files/3cf7f17a-14b2-4c4e-83d5-79985f613b93.png?auth_key=1879748729-2ee6bf78000c48d9b68811813c19aab5-0-5b16a1d02c487e43b1053b5013231aae" alt="Gallery 5"></div>
 </div>
 <button class="gallery-nav prev" onclick="moveGallery(-1)"><i data-lucide="chevron-left" style="width:20px;height:20px"></i></button>
 <button class="gallery-nav next" onclick="moveGallery(1)"><i data-lucide="chevron-right" style="width:20px;height:20px"></i></button>
 </div>
-<div class="gallery-thumbs" id="galleryThumbs"></div>
+
+<!-- Music Player -->
+<div class="music-player fade-in" id="musicPlayer">
+<audio id="weddingAudio" loop></audio>
+<div class="music-header">
+<div class="music-vinyl" id="musicVinyl"></div>
+<div class="music-info">
+<div class="music-title" id="musicTitle">Wedding Playlist</div>
+<div class="music-artist" id="musicArtist">Imogen & Tosin</div>
+</div>
+<div class="music-note">♪</div>
+</div>
+<div class="music-upload" id="musicUploadArea">
+<label class="music-upload-btn" for="audioFileInput">
+<i data-lucide="upload" style="width:14px;height:14px"></i>
+Upload Your Love Song
+</label>
+<input type="file" id="audioFileInput" accept="audio/*" style="display:none" onchange="loadAudioFile(event)">
+<p class="music-placeholder-text">Upload an MP3 to play during the slideshow ♡</p>
+</div>
+<div class="music-controls">
+<button class="music-play-btn" id="musicPlayBtn" onclick="toggleMusic()" disabled>
+<i data-lucide="play" style="width:20px;height:20px" id="playIcon"></i>
+</button>
+<div class="music-progress-wrap">
+<div class="music-progress-bar" id="musicProgressBar" onclick="seekAudio(event)">
+<div class="music-progress-fill" id="musicProgressFill"></div>
+</div>
+<div class="music-times">
+<span class="music-time" id="musicCurrentTime">0:00</span>
+<span class="music-time" id="musicDuration">0:00</span>
+</div>
+</div>
+<div class="music-volume-wrap">
+<span class="music-volume-icon" onclick="toggleMute()"><i data-lucide="volume-2" style="width:16px;height:16px" id="volumeIcon"></i></span>
+<input type="range" class="music-volume" id="musicVolume" min="0" max="1" step="0.05" value="0.7" oninput="setVolume(this.value)">
+</div>
+</div>
+<div class="music-song-name" id="musicSongName"></div>
+</div>
 </div>
 </div>
 </div>
@@ -332,92 +416,33 @@ a{text-decoration:none;color:inherit}
 <div class="ornament">✦</div>
 <h2 class="section-title fade-in">Traditional Wedding</h2>
 <p class="section-subtitle fade-in">Celebrating our heritage & love</p>
-
 <div class="flip-container fade-in">
-<div class="flip-card" id="tradFlipCard" onclick="this.classList.toggle('flipped')">
+<div class="flip-card" onclick="this.classList.toggle('flipped')">
 <div class="flip-card-inner">
-<div class="flip-card-front">
-<img src="https://z-cdn-media.chatglm.cn/files/8b6e435b-dc33-4a3c-8e99-82e3e2aea0c6.png?auth_key=1879748729-15c53364ea4b43528844b647567441c7-0-03fd22c4a38eac04b461d33e8031369f" alt="Traditional Wedding Invitation Front">
-</div>
-<div class="flip-card-back">
-<img src="https://z-cdn-media.chatglm.cn/files/17ba89c0-a75c-45d1-a9da-e08e696f1588.png?auth_key=1879748729-2473ac4173d04b65936d2bf103b36f87-0-e93619657a593d4ef2db0505a0bfb2b2" alt="Traditional Wedding Invitation Back">
-</div>
+<div class="flip-card-front"><img src="https://z-cdn-media.chatglm.cn/files/8b6e435b-dc33-4a3c-8e99-82e3e2aea0c6.png?auth_key=1879748729-15c53364ea4b43528844b647567441c7-0-03fd22c4a38eac04b461d33e8031369f" alt="Traditional Wedding Invitation Front"></div>
+<div class="flip-card-back"><img src="https://z-cdn-media.chatglm.cn/files/17ba89c0-a75c-45d1-a9da-e08e696f1588.png?auth_key=1879748729-2473ac4173d04b65936d2bf103b36f87-0-e93619657a593d4ef2db0505a0bfb2b2" alt="Traditional Wedding Invitation Back"></div>
 </div>
 </div>
 <div class="flip-hint"><i data-lucide="rotate-3d" style="width:14px;height:14px"></i> Tap card to flip</div>
 <a href="#" class="download-btn" onclick="downloadTraditionalPDF(event)"><i data-lucide="download" style="width:14px;height:14px"></i> Download Invitation</a>
 </div>
-
 <div style="margin-top:60px">
 <div class="ornament">✦</div>
 <h2 class="section-title fade-in">Traditional Wedding Facilitators</h2>
 <p class="section-subtitle fade-in">Meet Our Wedding Team</p>
 <div class="facilitators-grid">
-<div class="facilitator-card fade-in">
-<div class="facilitator-icon"><i data-lucide="crown" style="width:22px;height:22px"></i></div>
-<div class="facilitator-role">Alaga</div>
-<div class="facilitator-name">K Gold Alaga</div>
-<div class="facilitator-role" style="margin-bottom:10px">Traditional Marriage Facilitator</div>
-<button class="facilitator-btn" onclick="window.open('#','_blank')"><i data-lucide="star" style="width:12px;height:12px"></i> View</button>
-</div>
-<div class="facilitator-card fade-in">
-<div class="facilitator-icon"><i data-lucide="music" style="width:22px;height:22px"></i></div>
-<div class="facilitator-role">DJ</div>
-<div class="facilitator-name">DJ Omega</div>
-<button class="facilitator-btn" onclick="window.open('#','_blank')"><i data-lucide="music-2" style="width:12px;height:12px"></i> Book DJ</button>
-</div>
-<div class="facilitator-card fade-in">
-<div class="facilitator-icon"><i data-lucide="camera" style="width:22px;height:22px"></i></div>
-<div class="facilitator-role">Photographer / Video Coverage</div>
-<div class="facilitator-name">Villizpixels</div>
-<button class="facilitator-btn" onclick="window.open('mailto:Villizpixels@gmail.com','_blank')"><i data-lucide="mail" style="width:12px;height:12px"></i> Email</button>
-</div>
-<div class="facilitator-card fade-in">
-<div class="facilitator-icon"><i data-lucide="sparkles" style="width:22px;height:22px"></i></div>
-<div class="facilitator-role">Make Up Artist</div>
-<div class="facilitator-name">Mervicsignatures L (Jumoke)</div>
-<button class="facilitator-btn" onclick="window.open('#','_blank')"><i data-lucide="heart" style="width:12px;height:12px"></i> View</button>
-</div>
-<div class="facilitator-card fade-in">
-<div class="facilitator-icon"><i data-lucide="utensils" style="width:22px;height:22px"></i></div>
-<div class="facilitator-role">Caterer</div>
-<div class="facilitator-name">MummyBCooks</div>
-<button class="facilitator-btn" onclick="window.open('#','_blank')"><i data-lucide="chef-hat" style="width:12px;height:12px"></i> View</button>
-</div>
-<div class="facilitator-card fade-in">
-<div class="facilitator-icon"><i data-lucide="cookie" style="width:22px;height:22px"></i></div>
-<div class="facilitator-role">Snacks / Extra Catering</div>
-<div class="facilitator-name">Glad Million</div>
-<button class="facilitator-btn" onclick="window.open('https://www.gladmillions.com','_blank')"><i data-lucide="external-link" style="width:12px;height:12px"></i> Website</button>
-</div>
-<div class="facilitator-card fade-in">
-<div class="facilitator-icon"><i data-lucide="flower-2" style="width:22px;height:22px"></i></div>
-<div class="facilitator-role">Decorator</div>
-<div class="facilitator-name">Hannah — Eventz4U</div>
-<button class="facilitator-btn" onclick="window.open('https://www.instagram.com/eventz4u?igsh=dnZ1Zms0ZjNqaXZ6&utm_source=qr','_blank')"><i data-lucide="instagram" style="width:12px;height:12px"></i> Instagram</button>
-</div>
-<div class="facilitator-card fade-in">
-<div class="facilitator-icon"><i data-lucide="cake-slice" style="width:22px;height:22px"></i></div>
-<div class="facilitator-role">Cake</div>
-<div class="facilitator-name">Ready Cakes</div>
-<button class="facilitator-btn" onclick="window.open('mailto:redycakes@yahoo.co.uk','_blank')"><i data-lucide="mail" style="width:12px;height:12px"></i> Email</button>
-</div>
-<div class="facilitator-card fade-in">
-<div class="facilitator-icon"><i data-lucide="mic" style="width:22px;height:22px"></i></div>
-<div class="facilitator-role">MC</div>
-<div class="facilitator-name">Mr Akogun</div>
-<button class="facilitator-btn" onclick="window.open('#','_blank')"><i data-lucide="mic-2" style="width:12px;height:12px"></i> View</button>
+<div class="facilitator-card fade-in"><div class="facilitator-icon"><i data-lucide="crown" style="width:22px;height:22px"></i></div><div class="facilitator-role">Alaga</div><div class="facilitator-name">K Gold Alaga</div><div class="facilitator-role" style="margin-bottom:10px">Traditional Marriage Facilitator</div><button class="facilitator-btn" onclick="window.open('#','_blank')"><i data-lucide="star" style="width:12px;height:12px"></i> View</button></div>
+<div class="facilitator-card fade-in"><div class="facilitator-icon"><i data-lucide="music" style="width:22px;height:22px"></i></div><div class="facilitator-role">DJ</div><div class="facilitator-name">DJ Omega</div><button class="facilitator-btn" onclick="window.open('#','_blank')"><i data-lucide="music-2" style="width:12px;height:12px"></i> Book DJ</button></div>
+<div class="facilitator-card fade-in"><div class="facilitator-icon"><i data-lucide="camera" style="width:22px;height:22px"></i></div><div class="facilitator-role">Photographer / Video Coverage</div><div class="facilitator-name">Villizpixels</div><button class="facilitator-btn" onclick="window.open('mailto:Villizpixels@gmail.com','_blank')"><i data-lucide="mail" style="width:12px;height:12px"></i> Email</button></div>
+<div class="facilitator-card fade-in"><div class="facilitator-icon"><i data-lucide="sparkles" style="width:22px;height:22px"></i></div><div class="facilitator-role">Make Up Artist</div><div class="facilitator-name">Mervicsignatures L (Jumoke)</div><button class="facilitator-btn" onclick="window.open('#','_blank')"><i data-lucide="heart" style="width:12px;height:12px"></i> View</button></div>
+<div class="facilitator-card fade-in"><div class="facilitator-icon"><i data-lucide="utensils" style="width:22px;height:22px"></i></div><div class="facilitator-role">Caterer</div><div class="facilitator-name">MummyBCooks</div><button class="facilitator-btn" onclick="window.open('#','_blank')"><i data-lucide="chef-hat" style="width:12px;height:12px"></i> View</button></div>
+<div class="facilitator-card fade-in"><div class="facilitator-icon"><i data-lucide="cookie" style="width:22px;height:22px"></i></div><div class="facilitator-role">Snacks / Extra Catering</div><div class="facilitator-name">Glad Million</div><button class="facilitator-btn" onclick="window.open('https://www.gladmillions.com','_blank')"><i data-lucide="external-link" style="width:12px;height:12px"></i> Website</button></div>
+<div class="facilitator-card fade-in"><div class="facilitator-icon"><i data-lucide="flower-2" style="width:22px;height:22px"></i></div><div class="facilitator-role">Decorator</div><div class="facilitator-name">Hannah — Eventz4U</div><button class="facilitator-btn" onclick="window.open('https://www.instagram.com/eventz4u?igsh=dnZ1Zms0ZjNqaXZ6&utm_source=qr','_blank')"><i data-lucide="instagram" style="width:12px;height:12px"></i> Instagram</button></div>
+<div class="facilitator-card fade-in"><div class="facilitator-icon"><i data-lucide="cake-slice" style="width:22px;height:22px"></i></div><div class="facilitator-role">Cake</div><div class="facilitator-name">Ready Cakes</div><button class="facilitator-btn" onclick="window.open('mailto:redycakes@yahoo.co.uk','_blank')"><i data-lucide="mail" style="width:12px;height:12px"></i> Email</button></div>
+<div class="facilitator-card fade-in"><div class="facilitator-icon"><i data-lucide="mic" style="width:22px;height:22px"></i></div><div class="facilitator-role">MC</div><div class="facilitator-name">Mr Akogun</div><button class="facilitator-btn" onclick="window.open('#','_blank')"><i data-lucide="mic-2" style="width:12px;height:12px"></i> View</button></div>
 </div>
 </div>
-</div>
-
-<div class="venue-card fade-in">
-<div class="venue-icon"><i data-lucide="map-pin" style="width:24px;height:24px"></i></div>
-<div class="venue-label">Venue</div>
-<h4>Bedworth Heath Community Centre</h4>
-<p>181 Smorrall Lane, Bedworth,<br>Warwickshire, CV12 OJP</p>
-<button class="facilitator-btn" style="margin-top:12px" onclick="window.open('https://maps.google.com/?q=Bedworth+Heath+Community+Centre+181+Smorrall+Lane+Bedworth+CV12+OJP','_blank')"><i data-lucide="navigation" style="width:12px;height:12px"></i> Get Directions</button>
-</div>
+<div class="venue-card fade-in"><div class="venue-icon"><i data-lucide="map-pin" style="width:24px;height:24px"></i></div><div class="venue-label">Venue</div><h4>Bedworth Heath Community Centre</h4><p>181 Smorrall Lane, Bedworth,<br>Warwickshire, CV12 OJP</p><button class="facilitator-btn" style="margin-top:12px" onclick="window.open('https://maps.google.com/?q=Bedworth+Heath+Community+Centre+181+Smorrall+Lane+Bedworth+CV12+OJP','_blank')"><i data-lucide="navigation" style="width:12px;height:12px"></i> Get Directions</button></div>
 </div>
 </div>
 </div>
@@ -429,126 +454,47 @@ a{text-decoration:none;color:inherit}
 <div class="password-lock"><i data-lucide="lock" style="width:36px;height:36px"></i></div>
 <h2>Church Wedding</h2>
 <p>This section is password protected. Please enter the password to view the church wedding details.</p>
-<div class="password-input-wrap">
-<input type="password" class="password-input" id="passwordInput" placeholder="Enter password" onkeydown="if(event.key==='Enter')checkPassword()">
-<button class="password-toggle" onclick="togglePasswordVisibility()"><i data-lucide="eye" style="width:18px;height:18px" id="eyeIcon"></i></button>
-</div>
+<div class="password-input-wrap"><input type="password" class="password-input" id="passwordInput" placeholder="Enter password" onkeydown="if(event.key==='Enter')checkPassword()"><button class="password-toggle" onclick="togglePasswordVisibility()"><i data-lucide="eye" style="width:18px;height:18px"></i></button></div>
 <button class="password-submit" onclick="checkPassword()">Unlock</button>
 <div class="password-error" id="passwordError">Incorrect password. Please try again.</div>
 </div>
 </div>
-
 <div id="churchContent" style="display:none" class="church-page-content">
 <div class="section" style="padding-top:100px">
 <div class="section-inner">
 <div class="ornament">✦</div>
 <h2 class="section-title fade-in">Church Wedding</h2>
 <p class="section-subtitle fade-in">A sacred union before God</p>
-
 <div class="flip-container fade-in">
-<div class="flip-card" id="churchFlipCard" onclick="this.classList.toggle('flipped')">
+<div class="flip-card" onclick="this.classList.toggle('flipped')">
 <div class="flip-card-inner">
-<div class="flip-card-front">
-<img src="https://z-cdn-media.chatglm.cn/files/8842880c-73d1-40f4-acc3-7b06c508f8db.png?auth_key=1879748729-57c560b2c58c4ee9af178f3c2ad9b422-0-f0923d1d0496589bf1ad7c8b8c9812e7" alt="Church Wedding Invitation Front">
-</div>
-<div class="flip-card-back">
-<img src="https://z-cdn-media.chatglm.cn/files/58426a6a-6a30-4c03-a034-72d350e81885.png?auth_key=1879748729-3fcef5a3882041368dfee5efd3d5849a-0-6e76b410fb1b568d861c283f0eca88c3" alt="Church Wedding Invitation Back">
-</div>
+<div class="flip-card-front"><img src="https://z-cdn-media.chatglm.cn/files/8842880c-73d1-40f4-acc3-7b06c508f8db.png?auth_key=1879748729-57c560b2c58c4ee9af178f3c2ad9b422-0-f0923d1d0496589bf1ad7c8b8c9812e7" alt="Church Wedding Invitation Front"></div>
+<div class="flip-card-back"><img src="https://z-cdn-media.chatglm.cn/files/58426a6a-6a30-4c03-a034-72d350e81885.png?auth_key=1879748729-3fcef5a3882041368dfee5efd3d5849a-0-6e76b410fb1b568d861c283f0eca88c3" alt="Church Wedding Invitation Back"></div>
 </div>
 </div>
 <div class="flip-hint"><i data-lucide="rotate-3d" style="width:14px;height:14px"></i> Tap card to flip</div>
 <a href="#" class="download-btn" onclick="downloadChurchPDF(event)"><i data-lucide="download" style="width:14px;height:14px"></i> Download Invitation</a>
 </div>
-
 <div style="margin-top:60px">
 <div class="ornament">✦</div>
 <h2 class="section-title fade-in">Church Wedding Team</h2>
 <p class="section-subtitle fade-in">Meet Our Wedding Coordinators</p>
 <div class="facilitators-grid">
-<div class="facilitator-card fade-in">
-<div class="facilitator-icon"><i data-lucide="clipboard-list" style="width:22px;height:22px"></i></div>
-<div class="facilitator-role">Wedding Coordinator</div>
-<div class="facilitator-name">Revealed Events Planning</div>
-<button class="facilitator-btn" onclick="window.open('https://www.instagram.com/reprevealed?igsh=MWVjMXp0YW9oaTNodQ==','_blank')"><i data-lucide="instagram" style="width:12px;height:12px"></i> Instagram</button>
-</div>
-<div class="facilitator-card fade-in">
-<div class="facilitator-icon"><i data-lucide="flower-2" style="width:22px;height:22px"></i></div>
-<div class="facilitator-role">Decorator & Cake</div>
-<div class="facilitator-name">Cakes 4 U by Julz</div>
-<button class="facilitator-btn" onclick="window.open('https://www.cakemakersinbirmingham.co.uk','_blank')"><i data-lucide="external-link" style="width:12px;height:12px"></i> Website</button>
-</div>
-<div class="facilitator-card fade-in">
-<div class="facilitator-icon"><i data-lucide="music" style="width:22px;height:22px"></i></div>
-<div class="facilitator-role">DJ</div>
-<div class="facilitator-name">DJ Ro</div>
-<button class="facilitator-btn" onclick="window.open('https://www.instagram.com/itsdj_ro?igsh=ZHFnbXRybHk0empx','_blank')"><i data-lucide="instagram" style="width:12px;height:12px"></i> Instagram</button>
-</div>
-<div class="facilitator-card fade-in">
-<div class="facilitator-icon"><i data-lucide="mic" style="width:22px;height:22px"></i></div>
-<div class="facilitator-role">MC</div>
-<div class="facilitator-name">Daz The MC</div>
-<button class="facilitator-btn" onclick="window.open('https://www.instagram.com/dazthemc?igsh=MWlmcXVhMmVmZ2o0ZA==','_blank')"><i data-lucide="instagram" style="width:12px;height:12px"></i> Instagram</button>
-</div>
-<div class="facilitator-card fade-in">
-<div class="facilitator-icon"><i data-lucide="utensils" style="width:22px;height:22px"></i></div>
-<div class="facilitator-role">Caterers</div>
-<div class="facilitator-name">Danes Catering</div>
-<button class="facilitator-btn" onclick="window.open('https://www.danescatering.co.uk','_blank')"><i data-lucide="external-link" style="width:12px;height:12px"></i> Website</button>
-</div>
-<div class="facilitator-card fade-in">
-<div class="facilitator-icon"><i data-lucide="chef-hat" style="width:22px;height:22px"></i></div>
-<div class="facilitator-role">Caterer</div>
-<div class="facilitator-name">MummyBCooks</div>
-<button class="facilitator-btn" onclick="window.open('#','_blank')"><i data-lucide="heart" style="width:12px;height:12px"></i> View</button>
-</div>
-<div class="facilitator-card fade-in">
-<div class="facilitator-icon"><i data-lucide="camera" style="width:22px;height:22px"></i></div>
-<div class="facilitator-role">Photographer</div>
-<div class="facilitator-name">Mark Roberts</div>
-<button class="facilitator-btn" onclick="window.open('https://www.markrobertsphotography.com','_blank')"><i data-lucide="external-link" style="width:12px;height:12px"></i> Website</button>
-</div>
-<div class="facilitator-card fade-in">
-<div class="facilitator-icon"><i data-lucide="video" style="width:22px;height:22px"></i></div>
-<div class="facilitator-role">Content Creator</div>
-<div class="facilitator-name">Reel Tok</div>
-<button class="facilitator-btn" onclick="window.open('https://www.instagram.com/reeltokofficial?igsh=MWxwNWtqN3p3N2FlNw==','_blank')"><i data-lucide="instagram" style="width:12px;height:12px"></i> Instagram</button>
-</div>
-<div class="facilitator-card fade-in">
-<div class="facilitator-icon"><i data-lucide="shirt" style="width:22px;height:22px"></i></div>
-<div class="facilitator-role">Bridal Dress</div>
-<div class="facilitator-name">TDR Birmingham</div>
-<button class="facilitator-btn" onclick="window.open('https://www.thedressingroomsbridal.co.uk','_blank')"><i data-lucide="external-link" style="width:12px;height:12px"></i> Website</button>
-</div>
-<div class="facilitator-card fade-in">
-<div class="facilitator-icon"><i data-lucide="sparkles" style="width:22px;height:22px"></i></div>
-<div class="facilitator-role">Make Up Artist</div>
-<div class="facilitator-name">Make Up Versatile</div>
-<button class="facilitator-btn" onclick="window.open('https://www.instagram.com/makeupversatile','_blank')"><i data-lucide="instagram" style="width:12px;height:12px"></i> Instagram</button>
-<button class="facilitator-btn" style="margin-top:8px" onclick="window.open('mailto:Jummyte4u@gmail.com','_blank')"><i data-lucide="mail" style="width:12px;height:12px"></i> Email</button>
-</div>
-<div class="facilitator-card fade-in">
-<div class="facilitator-icon"><i data-lucide="user" style="width:22px;height:22px"></i></div>
-<div class="facilitator-role">Groom's Suit</div>
-<div class="facilitator-name">Slaters Menswear</div>
-<button class="facilitator-btn" onclick="window.open('https://www.slaters.co.uk','_blank')"><i data-lucide="external-link" style="width:12px;height:12px"></i> Website</button>
+<div class="facilitator-card fade-in"><div class="facilitator-icon"><i data-lucide="clipboard-list" style="width:22px;height:22px"></i></div><div class="facilitator-role">Wedding Coordinator</div><div class="facilitator-name">Revealed Events Planning</div><button class="facilitator-btn" onclick="window.open('https://www.instagram.com/reprevealed?igsh=MWVjMXp0YW9oaTNodQ==','_blank')"><i data-lucide="instagram" style="width:12px;height:12px"></i> Instagram</button></div>
+<div class="facilitator-card fade-in"><div class="facilitator-icon"><i data-lucide="flower-2" style="width:22px;height:22px"></i></div><div class="facilitator-role">Decorator & Cake</div><div class="facilitator-name">Cakes 4 U by Julz</div><button class="facilitator-btn" onclick="window.open('https://www.cakemakersinbirmingham.co.uk','_blank')"><i data-lucide="external-link" style="width:12px;height:12px"></i> Website</button></div>
+<div class="facilitator-card fade-in"><div class="facilitator-icon"><i data-lucide="music" style="width:22px;height:22px"></i></div><div class="facilitator-role">DJ</div><div class="facilitator-name">DJ Ro</div><button class="facilitator-btn" onclick="window.open('https://www.instagram.com/itsdj_ro?igsh=ZHFnbXRybHk0empx','_blank')"><i data-lucide="instagram" style="width:12px;height:12px"></i> Instagram</button></div>
+<div class="facilitator-card fade-in"><div class="facilitator-icon"><i data-lucide="mic" style="width:22px;height:22px"></i></div><div class="facilitator-role">MC</div><div class="facilitator-name">Daz The MC</div><button class="facilitator-btn" onclick="window.open('https://www.instagram.com/dazthemc?igsh=MWlmcXVhMmVmZ2o0ZA==','_blank')"><i data-lucide="instagram" style="width:12px;height:12px"></i> Instagram</button></div>
+<div class="facilitator-card fade-in"><div class="facilitator-icon"><i data-lucide="utensils" style="width:22px;height:22px"></i></div><div class="facilitator-role">Caterers</div><div class="facilitator-name">Danes Catering</div><button class="facilitator-btn" onclick="window.open('https://www.danescatering.co.uk','_blank')"><i data-lucide="external-link" style="width:12px;height:12px"></i> Website</button></div>
+<div class="facilitator-card fade-in"><div class="facilitator-icon"><i data-lucide="chef-hat" style="width:22px;height:22px"></i></div><div class="facilitator-role">Caterer</div><div class="facilitator-name">MummyBCooks</div><button class="facilitator-btn" onclick="window.open('#','_blank')"><i data-lucide="heart" style="width:12px;height:12px"></i> View</button></div>
+<div class="facilitator-card fade-in"><div class="facilitator-icon"><i data-lucide="camera" style="width:22px;height:22px"></i></div><div class="facilitator-role">Photographer</div><div class="facilitator-name">Mark Roberts</div><button class="facilitator-btn" onclick="window.open('https://www.markrobertsphotography.com','_blank')"><i data-lucide="external-link" style="width:12px;height:12px"></i> Website</button></div>
+<div class="facilitator-card fade-in"><div class="facilitator-icon"><i data-lucide="video" style="width:22px;height:22px"></i></div><div class="facilitator-role">Content Creator</div><div class="facilitator-name">Reel Tok</div><button class="facilitator-btn" onclick="window.open('https://www.instagram.com/reeltokofficial?igsh=MWxwNWtqN3p3N2FlNw==','_blank')"><i data-lucide="instagram" style="width:12px;height:12px"></i> Instagram</button></div>
+<div class="facilitator-card fade-in"><div class="facilitator-icon"><i data-lucide="shirt" style="width:22px;height:22px"></i></div><div class="facilitator-role">Bridal Dress</div><div class="facilitator-name">TDR Birmingham</div><button class="facilitator-btn" onclick="window.open('https://www.thedressingroomsbridal.co.uk','_blank')"><i data-lucide="external-link" style="width:12px;height:12px"></i> Website</button></div>
+<div class="facilitator-card fade-in"><div class="facilitator-icon"><i data-lucide="sparkles" style="width:22px;height:22px"></i></div><div class="facilitator-role">Make Up Artist</div><div class="facilitator-name">Make Up Versatile</div><button class="facilitator-btn" onclick="window.open('https://www.instagram.com/makeupversatile','_blank')"><i data-lucide="instagram" style="width:12px;height:12px"></i> Instagram</button><button class="facilitator-btn" style="margin-top:8px" onclick="window.open('mailto:Jummyte4u@gmail.com','_blank')"><i data-lucide="mail" style="width:12px;height:12px"></i> Email</button></div>
+<div class="facilitator-card fade-in"><div class="facilitator-icon"><i data-lucide="user" style="width:22px;height:22px"></i></div><div class="facilitator-role">Groom's Suit</div><div class="facilitator-name">Slaters Menswear</div><button class="facilitator-btn" onclick="window.open('https://www.slaters.co.uk','_blank')"><i data-lucide="external-link" style="width:12px;height:12px"></i> Website</button></div>
 </div>
 </div>
-</div>
-
-<div class="venue-card fade-in">
-<div class="venue-icon"><i data-lucide="church" style="width:24px;height:24px"></i></div>
-<div class="venue-label">Ceremony Venue</div>
-<h4>Stockland Green Methodist Church</h4>
-<p>Slade Rd, Erdington, Birmingham B23 7JH</p>
-<button class="facilitator-btn" style="margin-top:12px" onclick="window.open('https://maps.google.com/?q=Stockland+Green+Methodist+Church+Slade+Rd+Erdington+Birmingham+B23+7JH','_blank')"><i data-lucide="navigation" style="width:12px;height:12px"></i> Get Directions</button>
-</div>
-<div class="venue-card fade-in" style="margin-top:20px">
-<div class="venue-icon"><i data-lucide="party-popper" style="width:24px;height:24px"></i></div>
-<div class="venue-label">Reception Venue</div>
-<h4>Magnet Centre</h4>
-<p>Park Approach, Birmingham B23 7SJ</p>
-<button class="facilitator-btn" style="margin-top:12px" onclick="window.open('https://maps.google.com/?q=Magnet+Centre+Park+Approach+Birmingham+B23+7SJ','_blank')"><i data-lucide="navigation" style="width:12px;height:12px"></i> Get Directions</button>
-</div>
+<div class="venue-card fade-in"><div class="venue-icon"><i data-lucide="church" style="width:24px;height:24px"></i></div><div class="venue-label">Ceremony Venue</div><h4>Stockland Green Methodist Church</h4><p>Slade Rd, Erdington, Birmingham B23 7JH</p><button class="facilitator-btn" style="margin-top:12px" onclick="window.open('https://maps.google.com/?q=Stockland+Green+Methodist+Church+Slade+Rd+Erdington+Birmingham+B23+7JH','_blank')"><i data-lucide="navigation" style="width:12px;height:12px"></i> Get Directions</button></div>
+<div class="venue-card fade-in" style="margin-top:20px"><div class="venue-icon"><i data-lucide="party-popper" style="width:24px;height:24px"></i></div><div class="venue-label">Reception Venue</div><h4>Magnet Centre</h4><p>Park Approach, Birmingham B23 7SJ</p><button class="facilitator-btn" style="margin-top:12px" onclick="window.open('https://maps.google.com/?q=Magnet+Centre+Park+Approach+Birmingham+B23+7SJ','_blank')"><i data-lucide="navigation" style="width:12px;height:12px"></i> Get Directions</button></div>
 </div>
 </div>
 </div>
@@ -562,35 +508,29 @@ a{text-decoration:none;color:inherit}
 <h2 class="section-title fade-in">Meet the Bridal Party</h2>
 <p class="section-subtitle fade-in">Our closest friends & family</p>
 
-<!-- Maid of Honour -->
+<!-- Maid of Honour & Best Man - Centered -->
 <div class="bridal-divider fade-in">
 <div class="bridal-divider-line"></div>
-<div class="bridal-divider-text">Maid of Honour</div>
+<div class="bridal-divider-text">Maid of Honour & Best Man</div>
 <div class="bridal-divider-line"></div>
 </div>
-<div class="bridal-party-grid fade-in" style="max-width:300px">
-<div class="bridal-member">
-<div class="bridal-avatar">
-<div class="bridal-avatar-placeholder"><i data-lucide="user" style="width:48px;height:48px"></i></div>
+<div class="bridal-featured-row fade-in">
+<div class="bridal-card">
+<div class="bridal-photo">
+<img src="https://z-cdn-media.chatglm.cn/files/61438978-e294-43eb-af70-de21be281424.jpeg?auth_key=1879750873-e54c679a3d3442e68ac3966cc96aede0-0-dbcd3dc886bcce3a62c87c56b0ac6d8d" alt="Emily">
 </div>
-<div class="bridal-role">Maid of Honour</div>
-<div class="bridal-name">Emily</div>
+<div class="bridal-card-role">Maid of Honour</div>
+<div class="bridal-card-name">Emily</div>
+</div>
+<div class="bridal-card">
+<div class="bridal-photo">
+<div class="bridal-photo-placeholder">
+<i data-lucide="user" style="width:48px;height:48px"></i>
+<span>Add Photo</span>
 </div>
 </div>
-
-<!-- Best Man -->
-<div class="bridal-divider fade-in">
-<div class="bridal-divider-line"></div>
-<div class="bridal-divider-text">Best Man</div>
-<div class="bridal-divider-line"></div>
-</div>
-<div class="bridal-party-grid fade-in" style="max-width:300px">
-<div class="bridal-member">
-<div class="bridal-avatar">
-<div class="bridal-avatar-placeholder"><i data-lucide="user" style="width:48px;height:48px"></i></div>
-</div>
-<div class="bridal-role">Best Man</div>
-<div class="bridal-name">David</div>
+<div class="bridal-card-role">Best Man</div>
+<div class="bridal-card-name">David</div>
 </div>
 </div>
 
@@ -600,34 +540,26 @@ a{text-decoration:none;color:inherit}
 <div class="bridal-divider-text">Bridesmaids</div>
 <div class="bridal-divider-line"></div>
 </div>
-<div class="bridal-party-grid fade-in">
-<div class="bridal-member">
-<div class="bridal-avatar">
-<div class="bridal-avatar-placeholder"><i data-lucide="user" style="width:40px;height:40px"></i></div>
+<div class="bridal-grid fade-in">
+<div class="bridal-card">
+<div class="bridal-photo"><div class="bridal-photo-placeholder"><i data-lucide="user" style="width:36px;height:36px"></i><span>Add Photo</span></div></div>
+<div class="bridal-card-role">Bridesmaid</div>
+<div class="bridal-card-name">Olivia</div>
 </div>
-<div class="bridal-role">Bridesmaid</div>
-<div class="bridal-name">Olivia</div>
+<div class="bridal-card">
+<div class="bridal-photo"><div class="bridal-photo-placeholder"><i data-lucide="user" style="width:36px;height:36px"></i><span>Add Photo</span></div></div>
+<div class="bridal-card-role">Bridesmaid</div>
+<div class="bridal-card-name">Courtney</div>
 </div>
-<div class="bridal-member">
-<div class="bridal-avatar">
-<div class="bridal-avatar-placeholder"><i data-lucide="user" style="width:40px;height:40px"></i></div>
+<div class="bridal-card">
+<div class="bridal-photo"><div class="bridal-photo-placeholder"><i data-lucide="user" style="width:36px;height:36px"></i><span>Add Photo</span></div></div>
+<div class="bridal-card-role">Bridesmaid</div>
+<div class="bridal-card-name">Asima</div>
 </div>
-<div class="bridal-role">Bridesmaid</div>
-<div class="bridal-name">Courtney</div>
-</div>
-<div class="bridal-member">
-<div class="bridal-avatar">
-<div class="bridal-avatar-placeholder"><i data-lucide="user" style="width:40px;height:40px"></i></div>
-</div>
-<div class="bridal-role">Bridesmaid</div>
-<div class="bridal-name">Asima</div>
-</div>
-<div class="bridal-member">
-<div class="bridal-avatar">
-<div class="bridal-avatar-placeholder"><i data-lucide="user" style="width:40px;height:40px"></i></div>
-</div>
-<div class="bridal-role">Bridesmaid</div>
-<div class="bridal-name">Kara</div>
+<div class="bridal-card">
+<div class="bridal-photo"><div class="bridal-photo-placeholder"><i data-lucide="user" style="width:36px;height:36px"></i><span>Add Photo</span></div></div>
+<div class="bridal-card-role">Bridesmaid</div>
+<div class="bridal-card-name">Kara</div>
 </div>
 </div>
 
@@ -637,34 +569,26 @@ a{text-decoration:none;color:inherit}
 <div class="bridal-divider-text">Groomsmen</div>
 <div class="bridal-divider-line"></div>
 </div>
-<div class="bridal-party-grid fade-in">
-<div class="bridal-member">
-<div class="bridal-avatar">
-<div class="bridal-avatar-placeholder"><i data-lucide="user" style="width:40px;height:40px"></i></div>
+<div class="bridal-grid fade-in">
+<div class="bridal-card">
+<div class="bridal-photo"><div class="bridal-photo-placeholder"><i data-lucide="user" style="width:36px;height:36px"></i><span>Add Photo</span></div></div>
+<div class="bridal-card-role">Groomsman</div>
+<div class="bridal-card-name">Elisha</div>
 </div>
-<div class="bridal-role">Groomsman</div>
-<div class="bridal-name">Elisha</div>
+<div class="bridal-card">
+<div class="bridal-photo"><div class="bridal-photo-placeholder"><i data-lucide="user" style="width:36px;height:36px"></i><span>Add Photo</span></div></div>
+<div class="bridal-card-role">Groomsman</div>
+<div class="bridal-card-name">Julio</div>
 </div>
-<div class="bridal-member">
-<div class="bridal-avatar">
-<div class="bridal-avatar-placeholder"><i data-lucide="user" style="width:40px;height:40px"></i></div>
+<div class="bridal-card">
+<div class="bridal-photo"><div class="bridal-photo-placeholder"><i data-lucide="user" style="width:36px;height:36px"></i><span>Add Photo</span></div></div>
+<div class="bridal-card-role">Groomsman</div>
+<div class="bridal-card-name">Matthew</div>
 </div>
-<div class="bridal-role">Groomsman</div>
-<div class="bridal-name">Julio</div>
-</div>
-<div class="bridal-member">
-<div class="bridal-avatar">
-<div class="bridal-avatar-placeholder"><i data-lucide="user" style="width:40px;height:40px"></i></div>
-</div>
-<div class="bridal-role">Groomsman</div>
-<div class="bridal-name">Matthew</div>
-</div>
-<div class="bridal-member">
-<div class="bridal-avatar">
-<div class="bridal-avatar-placeholder"><i data-lucide="user" style="width:40px;height:40px"></i></div>
-</div>
-<div class="bridal-role">Groomsman</div>
-<div class="bridal-name">Andre</div>
+<div class="bridal-card">
+<div class="bridal-photo"><div class="bridal-photo-placeholder"><i data-lucide="user" style="width:36px;height:36px"></i><span>Add Photo</span></div></div>
+<div class="bridal-card-role">Groomsman</div>
+<div class="bridal-card-name">Andre</div>
 </div>
 </div>
 
@@ -674,18 +598,29 @@ a{text-decoration:none;color:inherit}
 <div class="bridal-divider-text">Decorator</div>
 <div class="bridal-divider-line"></div>
 </div>
-<div class="bridal-party-grid fade-in" style="max-width:300px">
-<div class="bridal-member">
-<div class="bridal-avatar" style="background:linear-gradient(135deg,var(--lilac-bg),var(--gold-light))">
-<div class="bridal-avatar-placeholder"><i data-lucide="flower-2" style="width:40px;height:40px"></i></div>
+<div class="bridal-featured-row fade-in" style="justify-content:center">
+<div class="bridal-card">
+<div class="bridal-photo" style="background:linear-gradient(135deg,var(--lilac-bg),var(--gold-light))">
+<div class="bridal-photo-placeholder"><i data-lucide="flower-2" style="width:40px;height:40px"></i><span>Events4U</span></div>
 </div>
-<div class="bridal-role">Decorator</div>
-<div class="bridal-name">Events4U</div>
-<button class="facilitator-btn" style="margin-top:10px" onclick="window.open('https://www.instagram.com/_eventz4u','_blank')"><i data-lucide="instagram" style="width:12px;height:12px"></i> Instagram</button>
+<div class="bridal-card-role">Decorator</div>
+<div class="bridal-card-name">Events4U</div>
+<a class="bridal-card-link" href="https://www.instagram.com/_eventz4u" target="_blank"><i data-lucide="instagram" style="width:12px;height:12px"></i> Instagram</a>
 </div>
 </div>
 
 </div>
+</div>
+</div>
+
+<!-- Floating Mini Player -->
+<div class="mini-player" id="miniPlayer">
+<button class="mini-play" id="miniPlayBtn" onclick="toggleMusic()">
+<i data-lucide="play" style="width:16px;height:16px" id="miniPlayIcon"></i>
+</button>
+<div class="mini-info">
+<span class="mini-title" id="miniTitle">Wedding Playlist</span>
+<span class="mini-artist" id="miniArtist">Imogen & Tosin</span>
 </div>
 </div>
 
@@ -712,54 +647,24 @@ a{text-decoration:none;color:inherit}
 <script>
 lucide.createIcons();
 
-function closeWelcome(){
-    document.getElementById('welcomeOverlay').classList.add('hidden');
-    document.body.style.overflow='';
-}
+// ===== WELCOME =====
+function closeWelcome(){document.getElementById('welcomeOverlay').classList.add('hidden');document.body.style.overflow=''}
 document.body.style.overflow='hidden';
 
-// Hero Slideshow
+// ===== HERO SLIDESHOW =====
 let currentHeroSlide=0;
 const heroSlides=document.querySelectorAll('.hero-slide');
 const heroDotsContainer=document.getElementById('heroDots');
-heroSlides.forEach((_,i)=>{
-    const dot=document.createElement('button');
-    dot.className='hero-dot'+(i===0?' active':'');
-    dot.onclick=()=>goToHeroSlide(i);
-    heroDotsContainer.appendChild(dot);
-});
-function goToHeroSlide(index){
-    heroSlides[currentHeroSlide].classList.remove('active');
-    heroDotsContainer.children[currentHeroSlide].classList.remove('active');
-    currentHeroSlide=index;
-    heroSlides[currentHeroSlide].classList.add('active');
-    heroDotsContainer.children[currentHeroSlide].classList.add('active');
-}
+heroSlides.forEach((_,i)=>{const dot=document.createElement('button');dot.className='hero-dot'+(i===0?' active':'');dot.onclick=()=>goToHeroSlide(i);heroDotsContainer.appendChild(dot)});
+function goToHeroSlide(index){heroSlides[currentHeroSlide].classList.remove('active');heroDotsContainer.children[currentHeroSlide].classList.remove('active');currentHeroSlide=index;heroSlides[currentHeroSlide].classList.add('active');heroDotsContainer.children[currentHeroSlide].classList.add('active')}
 setInterval(()=>{goToHeroSlide((currentHeroSlide+1)%heroSlides.length)},5000);
 
-// Gallery Slideshow
+// ===== GALLERY SLIDESHOW =====
 let currentGallerySlide=0;
 const galleryTrack=document.getElementById('galleryTrack');
 const gallerySlides=document.querySelectorAll('.gallery-slide');
-const galleryThumbsContainer=document.getElementById('galleryThumbs');
-gallerySlides.forEach((slide,i)=>{
-    const thumb=document.createElement('div');
-    thumb.className='gallery-thumb'+(i===0?' active':'');
-    thumb.innerHTML=`<img src="${slide.querySelector('img').src}" alt="Thumb ${i+1}">`;
-    thumb.onclick=()=>goToGallerySlide(i);
-    galleryThumbsContainer.appendChild(thumb);
-});
-function goToGallerySlide(index){
-    currentGallerySlide=index;
-    galleryTrack.style.transform=`translateX(-${index*100}%)`;
-    document.querySelectorAll('.gallery-thumb').forEach((t,i)=>{t.classList.toggle('active',i===index)});
-}
-function moveGallery(dir){
-    let next=currentGallerySlide+dir;
-    if(next<0)next=gallerySlides.length-1;
-    if(next>=gallerySlides.length)next=0;
-    goToGallerySlide(next);
-}
+function goToGallerySlide(index){currentGallerySlide=index;galleryTrack.style.transform=`translateX(-${index*100}%)`}
+function moveGallery(dir){let next=currentGallerySlide+dir;if(next<0)next=gallerySlides.length-1;if(next>=gallerySlides.length)next=0;goToGallerySlide(next)}
 let galleryAuto=setInterval(()=>moveGallery(1),4000);
 document.querySelector('.gallery-slideshow').addEventListener('mouseenter',()=>clearInterval(galleryAuto));
 document.querySelector('.gallery-slideshow').addEventListener('mouseleave',()=>{galleryAuto=setInterval(()=>moveGallery(1),4000)});
@@ -768,77 +673,95 @@ const galleryEl=document.querySelector('.gallery-slideshow');
 galleryEl.addEventListener('touchstart',e=>{touchStartX=e.touches[0].clientX},{passive:true});
 galleryEl.addEventListener('touchend',e=>{const diff=touchStartX-e.changedTouches[0].clientX;if(Math.abs(diff)>50)moveGallery(diff>0?1:-1)},{passive:true});
 
-// Page Navigation
+// ===== MUSIC PLAYER =====
+const audio=document.getElementById('weddingAudio');
+const playBtn=document.getElementById('musicPlayBtn');
+const vinyl=document.getElementById('musicVinyl');
+const progressFill=document.getElementById('musicProgressFill');
+const currentTimeEl=document.getElementById('musicCurrentTime');
+const durationEl=document.getElementById('musicDuration');
+const volumeSlider=document.getElementById('musicVolume');
+const miniPlayer=document.getElementById('miniPlayer');
+let isPlaying=false;
+let audioLoaded=false;
+
+function loadAudioFile(event){
+    const file=event.target.files[0];
+    if(!file)return;
+    const url=URL.createObjectURL(file);
+    audio.src=url;
+    audio.load();
+    audioLoaded=true;
+    playBtn.disabled=false;
+    document.getElementById('musicTitle').textContent='Now Playing';
+    document.getElementById('musicArtist').textContent='Imogen & Tosin ♡';
+    document.getElementById('musicSongName').textContent=file.name.replace(/\.[^/.]+$/,'');
+    document.getElementById('musicUploadArea').style.display='none';
+    document.getElementById('miniTitle').textContent=file.name.replace(/\.[^/.]+$/,'');
+    audio.addEventListener('loadedmetadata',()=>{durationEl.textContent=formatTime(audio.duration)});
+    // Auto-play
+    audio.play().then(()=>{isPlaying=true;updatePlayIcons();vinyl.classList.add('spinning')}).catch(()=>{});
+}
+
+function toggleMusic(){
+    if(!audioLoaded)return;
+    if(isPlaying){audio.pause();isPlaying=false;vinyl.classList.remove('spinning')}
+    else{audio.play().then(()=>{isPlaying=true;vinyl.classList.add('spinning')}).catch(()=>{});}
+    updatePlayIcons();
+}
+
+function updatePlayIcons(){
+    const icon=isPlaying?'pause':'play';
+    document.getElementById('playIcon').setAttribute('data-lucide',icon);
+    document.getElementById('miniPlayIcon').setAttribute('data-lucide',icon);
+    lucide.createIcons();
+}
+
+audio.addEventListener('timeupdate',()=>{
+    if(audio.duration){const pct=(audio.currentTime/audio.duration)*100;progressFill.style.width=pct+'%';currentTimeEl.textContent=formatTime(audio.currentTime)}
+});
+audio.addEventListener('ended',()=>{isPlaying=false;updatePlayIcons();vinyl.classList.remove('spinning')});
+
+function seekAudio(e){if(!audioLoaded||!audio.duration)return;const rect=e.currentTarget.getBoundingClientRect();const pct=(e.clientX-rect.left)/rect.width;audio.currentTime=pct*audio.duration}
+function setVolume(val){audio.volume=val}
+function toggleMute(){audio.muted=!audio.muted;document.getElementById('volumeIcon').setAttribute('data-lucide',audio.muted?'volume-x':'volume-2');lucide.createIcons()}
+function formatTime(s){if(!s||isNaN(s))return'0:00';const m=Math.floor(s/60);const sec=Math.floor(s%60);return m+':'+(sec<10?'0':'')+sec}
+
+// Show mini player when scrolling away from gallery
+const gallerySection=document.getElementById('gallery');
+const miniObserver=new IntersectionObserver(entries=>{entries.forEach(entry=>{if(!entry.isIntersecting&&isPlaying){miniPlayer.classList.add('show')}else{miniPlayer.classList.remove('show')}})},{threshold:0.1});
+miniObserver.observe(gallerySection);
+
+// ===== PAGE NAVIGATION =====
 function showPage(pageName){
     document.querySelectorAll('.page').forEach(p=>{p.classList.remove('active');p.style.display='none'});
     const page=document.getElementById(pageName+'Page');
     page.style.display='block';
     setTimeout(()=>page.classList.add('active'),10);
     document.querySelectorAll('.nav-link').forEach(l=>{l.classList.toggle('active',l.dataset.page===pageName)});
-    if(pageName==='church'){
-        if(!sessionStorage.getItem('churchUnlocked')){
-            document.getElementById('passwordGate').style.display='flex';
-            document.getElementById('churchContent').style.display='none';
-        }else{
-            document.getElementById('passwordGate').style.display='none';
-            document.getElementById('churchContent').style.display='block';
-        }
-    }
+    if(pageName==='church'){if(!sessionStorage.getItem('churchUnlocked')){document.getElementById('passwordGate').style.display='flex';document.getElementById('churchContent').style.display='none'}else{document.getElementById('passwordGate').style.display='none';document.getElementById('churchContent').style.display='block'}}
     window.scrollTo({top:0,behavior:'smooth'});
     setTimeout(initFadeIn,100);
     lucide.createIcons();
 }
 
-// Password
-function checkPassword(){
-    const input=document.getElementById('passwordInput');
-    const error=document.getElementById('passwordError');
-    if(input.value.toUpperCase()==='GRACE'){
-        sessionStorage.setItem('churchUnlocked','true');
-        document.getElementById('passwordGate').style.display='none';
-        document.getElementById('churchContent').style.display='block';
-        error.classList.remove('show');input.classList.remove('error');
-        setTimeout(initFadeIn,100);lucide.createIcons();
-    }else{
-        input.classList.add('error');error.classList.add('show');
-        setTimeout(()=>input.classList.remove('error'),600);
-    }
-}
-function togglePasswordVisibility(){
-    const input=document.getElementById('passwordInput');
-    input.type=input.type==='password'?'text':'password';
-}
+// ===== PASSWORD =====
+function checkPassword(){const input=document.getElementById('passwordInput');const error=document.getElementById('passwordError');if(input.value.toUpperCase()==='GRACE'){sessionStorage.setItem('churchUnlocked','true');document.getElementById('passwordGate').style.display='none';document.getElementById('churchContent').style.display='block';error.classList.remove('show');input.classList.remove('error');setTimeout(initFadeIn,100);lucide.createIcons()}else{input.classList.add('error');error.classList.add('show');setTimeout(()=>input.classList.remove('error'),600)}}
+function togglePasswordVisibility(){const input=document.getElementById('passwordInput');input.type=input.type==='password'?'text':'password'}
 
-// Mobile Menu
-function toggleMobile(){
-    document.getElementById('hamburger').classList.toggle('open');
-    document.getElementById('mobileMenu').classList.toggle('show');
-}
+// ===== MOBILE MENU =====
+function toggleMobile(){document.getElementById('hamburger').classList.toggle('open');document.getElementById('mobileMenu').classList.toggle('show')}
 
-// Navbar Scroll
-window.addEventListener('scroll',()=>{
-    document.getElementById('navbar').classList.toggle('scrolled',window.scrollY>50);
-    document.getElementById('backTop').classList.toggle('show',window.scrollY>400);
-});
+// ===== NAVBAR SCROLL =====
+window.addEventListener('scroll',()=>{document.getElementById('navbar').classList.toggle('scrolled',window.scrollY>50);document.getElementById('backTop').classList.toggle('show',window.scrollY>400)});
 
-// Fade In
-function initFadeIn(){
-    const observer=new IntersectionObserver(entries=>{entries.forEach(entry=>{if(entry.isIntersecting)entry.target.classList.add('visible')})},{threshold:0.1});
-    document.querySelectorAll('.fade-in:not(.visible)').forEach(el=>observer.observe(el));
-}
+// ===== FADE IN =====
+function initFadeIn(){const observer=new IntersectionObserver(entries=>{entries.forEach(entry=>{if(entry.isIntersecting)entry.target.classList.add('visible')})},{threshold:0.1});document.querySelectorAll('.fade-in:not(.visible)').forEach(el=>observer.observe(el))}
 initFadeIn();
 
-// Downloads
-function downloadTraditionalPDF(e){
-    e.preventDefault();
-    window.open('https://z-cdn-media.chatglm.cn/files/8b6e435b-dc33-4a3c-8e99-82e3e2aea0c6.png?auth_key=1879748729-15c53364ea4b43528844b647567441c7-0-03fd22c4a38eac04b461d33e8031369f','_blank');
-    setTimeout(()=>window.open('https://z-cdn-media.chatglm.cn/files/17ba89c0-a75c-45d1-a9da-e08e696f1588.png?auth_key=1879748729-2473ac4173d04b65936d2bf103b36f87-0-e93619657a593d4ef2db0505a0bfb2b2','_blank'),500);
-}
-function downloadChurchPDF(e){
-    e.preventDefault();
-    window.open('https://z-cdn-media.chatglm.cn/files/8842880c-73d1-40f4-acc3-7b06c508f8db.png?auth_key=1879748729-57c560b2c58c4ee9af178f3c2ad9b422-0-f0923d1d0496589bf1ad7c8b8c9812e7','_blank');
-    setTimeout(()=>window.open('https://z-cdn-media.chatglm.cn/files/58426a6a-6a30-4c03-a034-72d350e81885.png?auth_key=1879748729-3fcef5a3882041368dfee5efd3d5849a-0-6e76b410fb1b568d861c283f0eca88c3','_blank'),500);
-}
+// ===== DOWNLOADS =====
+function downloadTraditionalPDF(e){e.preventDefault();window.open('https://z-cdn-media.chatglm.cn/files/8b6e435b-dc33-4a3c-8e99-82e3e2aea0c6.png?auth_key=1879748729-15c53364ea4b43528844b647567441c7-0-03fd22c4a38eac04b461d33e8031369f','_blank');setTimeout(()=>window.open('https://z-cdn-media.chatglm.cn/files/17ba89c0-a75c-45d1-a9da-e08e696f1588.png?auth_key=1879748729-2473ac4173d04b65936d2bf103b36f87-0-e93619657a593d4ef2db0505a0bfb2b2','_blank'),500)}
+function downloadChurchPDF(e){e.preventDefault();window.open('https://z-cdn-media.chatglm.cn/files/8842880c-73d1-40f4-acc3-7b06c508f8db.png?auth_key=1879748729-57c560b2c58c4ee9af178f3c2ad9b422-0-f0923d1d0496589bf1ad7c8b8c9812e7','_blank');setTimeout(()=>window.open('https://z-cdn-media.chatglm.cn/files/58426a6a-6a30-4c03-a034-72d350e81885.png?auth_key=1879748729-3fcef5a3882041368dfee5efd3d5849a-0-6e76b410fb1b568d861c283f0eca88c3','_blank'),500)}
 
 showPage('home');
 </script>
