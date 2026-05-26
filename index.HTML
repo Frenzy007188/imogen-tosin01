@@ -92,7 +92,6 @@ a{text-decoration:none;color:inherit}
 .gallery-nav.prev{left:16px}
 .gallery-nav.next{right:16px}
 
-/* MUSIC PLAYER */
 .music-player{max-width:1000px;margin:32px auto 0;background:linear-gradient(135deg,#2D2D2D,#3D2D4D,#2D2D2D);border-radius:20px;padding:28px 32px;box-shadow:0 12px 40px rgba(0,0,0,.2);position:relative;overflow:hidden}
 .music-player::before{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none'%3E%3Cg fill='%23C9A96E' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");pointer-events:none}
 .music-header{display:flex;align-items:center;gap:16px;margin-bottom:20px;position:relative;z-index:1}
@@ -145,14 +144,12 @@ a{text-decoration:none;color:inherit}
 .download-btn{display:inline-flex;align-items:center;gap:8px;margin-top:20px;padding:12px 28px;background:linear-gradient(135deg,var(--gold),var(--gold-dark));color:#fff;font-family:'Montserrat',sans-serif;font-size:.7rem;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;border:none;border-radius:50px;cursor:pointer;transition:all .3s;box-shadow:0 4px 15px rgba(201,169,110,.3)}
 .download-btn:hover{transform:translateY(-2px);box-shadow:0 8px 25px rgba(201,169,110,.5)}
 
-/* ===== BRIDAL PARTY - FULL IMAGE CARDS ===== */
 .bridal-party-section{background:linear-gradient(180deg,var(--cream),var(--lilac-bg),var(--peach-light),var(--lilac-bg),var(--cream))}
 .bp-divider{display:flex;align-items:center;justify-content:center;gap:16px;margin:52px 0 28px}
 .bp-divider-line{flex:1;max-width:120px;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
 .bp-divider-text{font-family:'Great Vibes',cursive;font-size:1.7rem;color:var(--lilac-dark);white-space:nowrap}
 .bp-featured-row{display:flex;justify-content:center;gap:28px;flex-wrap:wrap;margin-bottom:12px}
 
-/* Full-image card */
 .bp-card{
   width:280px;height:420px;
   border-radius:16px;overflow:hidden;
@@ -164,8 +161,6 @@ a{text-decoration:none;color:inherit}
   transform:translateY(-8px);
   box-shadow:0 24px 60px rgba(139,111,168,.3);
 }
-
-/* Image covers 100% of card */
 .bp-card-img{
   position:absolute;inset:0;
   width:100%;height:100%;
@@ -177,8 +172,6 @@ a{text-decoration:none;color:inherit}
   transform:scale(1.06);
   filter:brightness(.7);
 }
-
-/* Bottom gradient for text readability */
 .bp-card-gradient{
   position:absolute;bottom:0;left:0;right:0;
   height:60%;
@@ -189,8 +182,6 @@ a{text-decoration:none;color:inherit}
 .bp-card:hover .bp-card-gradient{
   height:70%;
 }
-
-/* Text at bottom - always visible */
 .bp-card-info{
   position:absolute;bottom:0;left:0;right:0;
   padding:20px 24px;z-index:3;
@@ -238,7 +229,58 @@ a{text-decoration:none;color:inherit}
   border-color:rgba(255,255,255,.6);
 }
 
-/* Grid cards - smaller */
+/* Placeholder card - no image */
+.bp-card-placeholder{
+  width:280px;height:420px;
+  border-radius:16px;overflow:hidden;
+  position:relative;
+  box-shadow:0 12px 40px rgba(0,0,0,.08);
+  transition:transform .5s cubic-bezier(.4,0,.2,1),box-shadow .5s;
+  display:flex;flex-direction:column;
+  align-items:center;justify-content:center;
+  text-align:center;
+}
+.bp-card-placeholder:hover{
+  transform:translateY(-8px);
+  box-shadow:0 24px 60px rgba(139,111,168,.25);
+}
+.bp-card-placeholder .bp-ph-bg{
+  position:absolute;inset:0;
+  z-index:1;
+}
+.bp-card-placeholder .bp-ph-content{
+  position:relative;z-index:2;
+  padding:24px;
+}
+.bp-card-placeholder .bp-ph-initials{
+  font-family:'Playfair Display',serif;
+  font-size:3.5rem;
+  color:rgba(255,255,255,.9);
+  margin-bottom:8px;
+  text-shadow:0 2px 15px rgba(0,0,0,.2);
+}
+.bp-card-placeholder .bp-ph-name{
+  font-family:'Playfair Display',serif;
+  font-size:1.4rem;color:#fff;
+  margin-bottom:6px;
+  text-shadow:0 2px 10px rgba(0,0,0,.3);
+  transition:letter-spacing .4s;
+}
+.bp-card-placeholder:hover .bp-ph-name{
+  letter-spacing:2px;
+}
+.bp-card-placeholder .bp-ph-role{
+  font-family:'Montserrat',sans-serif;
+  font-size:.6rem;letter-spacing:2.5px;
+  text-transform:uppercase;
+  color:var(--peach);
+  text-shadow:0 1px 6px rgba(0,0,0,.2);
+}
+.bp-card-placeholder .bp-ph-ornament{
+  font-size:1.2rem;color:rgba(255,255,255,.3);
+  margin-bottom:16px;letter-spacing:4px;
+}
+
 .bp-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;max-width:1200px;margin:0 auto}
 .bp-card-sm{
   width:100%;aspect-ratio:3/4;
@@ -260,6 +302,56 @@ a{text-decoration:none;color:inherit}
 .bp-card-sm .bp-card-name{font-size:1.25rem;color:#fff;margin-bottom:3px;text-shadow:0 2px 10px rgba(0,0,0,.4);transition:letter-spacing .4s}
 .bp-card-sm:hover .bp-card-name{letter-spacing:1.5px}
 .bp-card-sm .bp-card-role{font-size:.55rem;letter-spacing:2px;text-transform:uppercase;color:var(--peach);opacity:.9;text-shadow:0 1px 6px rgba(0,0,0,.3)}
+
+/* Placeholder small cards */
+.bp-card-sm-placeholder{
+  width:100%;aspect-ratio:3/4;
+  border-radius:14px;overflow:hidden;
+  position:relative;
+  box-shadow:0 8px 30px rgba(0,0,0,.08);
+  transition:transform .5s cubic-bezier(.4,0,.2,1),box-shadow .5s;
+  display:flex;flex-direction:column;
+  align-items:center;justify-content:center;
+  text-align:center;
+}
+.bp-card-sm-placeholder:hover{
+  transform:translateY(-6px);
+  box-shadow:0 20px 50px rgba(139,111,168,.25);
+}
+.bp-card-sm-placeholder .bp-ph-bg{
+  position:absolute;inset:0;z-index:1;
+}
+.bp-card-sm-placeholder .bp-ph-content{
+  position:relative;z-index:2;padding:16px;
+}
+.bp-card-sm-placeholder .bp-ph-initials{
+  font-family:'Playfair Display',serif;
+  font-size:2.8rem;
+  color:rgba(255,255,255,.9);
+  margin-bottom:6px;
+  text-shadow:0 2px 15px rgba(0,0,0,.2);
+}
+.bp-card-sm-placeholder .bp-ph-name{
+  font-family:'Playfair Display',serif;
+  font-size:1.15rem;color:#fff;
+  margin-bottom:4px;
+  text-shadow:0 2px 10px rgba(0,0,0,.3);
+  transition:letter-spacing .4s;
+}
+.bp-card-sm-placeholder:hover .bp-ph-name{
+  letter-spacing:1.5px;
+}
+.bp-card-sm-placeholder .bp-ph-role{
+  font-family:'Montserrat',sans-serif;
+  font-size:.55rem;letter-spacing:2px;
+  text-transform:uppercase;
+  color:var(--peach);
+  text-shadow:0 1px 6px rgba(0,0,0,.2);
+}
+.bp-card-sm-placeholder .bp-ph-ornament{
+  font-size:1rem;color:rgba(255,255,255,.3);
+  margin-bottom:10px;letter-spacing:3px;
+}
 
 .facilitators-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:20px}
 .facilitator-card{background:#fff;border-radius:16px;padding:28px 20px;text-align:center;border:1px solid var(--lilac-light);transition:all .4s;position:relative;overflow:hidden}
@@ -324,6 +416,11 @@ a{text-decoration:none;color:inherit}
 .bp-card-name{font-size:1.3rem}.bp-grid{grid-template-columns:repeat(2,1fr);gap:16px}
 .music-player{padding:20px 16px;margin-top:24px}.music-controls{gap:12px}.music-volume{width:50px}
 .bp-divider-text{font-size:1.3rem}
+.bp-card-placeholder{width:240px;height:360px}
+.bp-card-placeholder .bp-ph-initials{font-size:2.8rem}
+.bp-card-placeholder .bp-ph-name{font-size:1.2rem}
+.bp-card-sm-placeholder .bp-ph-initials{font-size:2.2rem}
+.bp-card-sm-placeholder .bp-ph-name{font-size:1rem}
 }
 @media(max-width:480px){
 .hero-names{font-size:2.5rem}.flip-card{width:270px;height:385px}
@@ -334,6 +431,10 @@ a{text-decoration:none;color:inherit}
 .bp-grid{grid-template-columns:1fr 1fr;gap:12px}
 .music-player{border-radius:16px}.music-header{gap:12px}.music-vinyl{width:44px;height:44px}.music-volume-wrap{display:none}
 .mini-player{padding:8px 16px;gap:8px;border-radius:40px}
+.bp-card-placeholder{width:80%;max-width:300px;height:380px}
+.bp-card-placeholder .bp-ph-initials{font-size:2.5rem}
+.bp-card-sm-placeholder .bp-ph-initials{font-size:2rem}
+.bp-card-sm-placeholder .bp-ph-name{font-size:.9rem}
 }
 </style>
 </head>
@@ -480,18 +581,18 @@ a{text-decoration:none;color:inherit}
 
 <div class="bp-divider fade-in"><div class="bp-divider-line"></div><div class="bp-divider-text">Maid of Honour & Best Man</div><div class="bp-divider-line"></div></div>
 <div class="bp-featured-row fade-in">
-<!-- Emily - emily.jpeg / husband.jpeg -->
+<!-- Emily - Real photo -->
 <div class="bp-card">
-  <img class="bp-card-img" src="https://z-cdn-media.chatglm.cn/files/61438978-e294-43eb-af70-de21be281424.jpeg?auth_key=1879750873-e54c679a3d3442e68ac3966cc96aede0-0-dbcd3dc886bcce3a62c87c56b0ac6d8d" alt="Emily">
+  <img class="bp-card-img" src="https://z-cdn-media.chatglm.cn/files/c5344936-88a4-4538-91f6-f11b58d54488.jpeg?auth_key=1879817245-f3c11581ec4348b6876646cc18633247-0-7497812bac04dc326bc0bf8d0a96c121" alt="Emily">
   <div class="bp-card-gradient"></div>
   <div class="bp-card-info">
     <div class="bp-card-name">Emily</div>
     <div class="bp-card-role">Maid of Honour</div>
   </div>
 </div>
-<!-- David - groom.jpeg / best man -->
+<!-- David - Real photo (groom) -->
 <div class="bp-card">
-  <img class="bp-card-img" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&h=800&fit=crop&crop=top" alt="David">
+  <img class="bp-card-img" src="https://z-cdn-media.chatglm.cn/files/823f5111-2a49-43eb-bb9b-61c559e62207.jpeg?auth_key=1879817245-a22a370681ec486784977725e9ce882a-0-6c4ea0f7a60f7e3f4af7adb35e58d354" alt="David">
   <div class="bp-card-gradient"></div>
   <div class="bp-card-info">
     <div class="bp-card-name">David</div>
@@ -502,69 +603,103 @@ a{text-decoration:none;color:inherit}
 
 <div class="bp-divider fade-in"><div class="bp-divider-line"></div><div class="bp-divider-text">Bridesmaids</div><div class="bp-divider-line"></div></div>
 <div class="bp-grid fade-in">
-<!-- Olivia - replace src with real photo -->
-<div class="bp-card-sm">
-  <img class="bp-card-img" src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=500&h=700&fit=crop&crop=top" alt="Olivia">
-  <div class="bp-card-gradient"></div>
-  <div class="bp-card-info"><div class="bp-card-name">Olivia</div><div class="bp-card-role">Bridesmaid</div></div>
+<!-- Olivia - Placeholder -->
+<div class="bp-card-sm-placeholder">
+  <div class="bp-ph-bg" style="background:linear-gradient(135deg,#C9A0DC,#E8B4D8,#D4A5C9)"></div>
+  <div class="bp-ph-content">
+    <div class="bp-ph-ornament">✦ ✦ ✦</div>
+    <div class="bp-ph-initials">O</div>
+    <div class="bp-ph-name">Olivia</div>
+    <div class="bp-ph-role">Bridesmaid</div>
+  </div>
 </div>
-<!-- Courtney -->
-<div class="bp-card-sm">
-  <img class="bp-card-img" src="https://images.unsplash.com/photo-1517841905240-472988babdf9?w=500&h=700&fit=crop&crop=top" alt="Courtney">
-  <div class="bp-card-gradient"></div>
-  <div class="bp-card-info"><div class="bp-card-name">Courtney</div><div class="bp-card-role">Bridesmaid</div></div>
+<!-- Courtney - Placeholder -->
+<div class="bp-card-sm-placeholder">
+  <div class="bp-ph-bg" style="background:linear-gradient(135deg,#B8A0C8,#D4B8E0,#C9A8D8)"></div>
+  <div class="bp-ph-content">
+    <div class="bp-ph-ornament">✦ ✦ ✦</div>
+    <div class="bp-ph-initials">C</div>
+    <div class="bp-ph-name">Courtney</div>
+    <div class="bp-ph-role">Bridesmaid</div>
+  </div>
 </div>
-<!-- Asima -->
-<div class="bp-card-sm">
-  <img class="bp-card-img" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=500&h=700&fit=crop&crop=top" alt="Asima">
-  <div class="bp-card-gradient"></div>
-  <div class="bp-card-info"><div class="bp-card-name">Asima</div><div class="bp-card-role">Bridesmaid</div></div>
+<!-- Asima - Placeholder -->
+<div class="bp-card-sm-placeholder">
+  <div class="bp-ph-bg" style="background:linear-gradient(135deg,#E8B4D8,#F0C8D8,#E0B0C8)"></div>
+  <div class="bp-ph-content">
+    <div class="bp-ph-ornament">✦ ✦ ✦</div>
+    <div class="bp-ph-initials">A</div>
+    <div class="bp-ph-name">Asima</div>
+    <div class="bp-ph-role">Bridesmaid</div>
+  </div>
 </div>
-<!-- Kara -->
-<div class="bp-card-sm">
-  <img class="bp-card-img" src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?w=500&h=700&fit=crop&crop=top" alt="Kara">
-  <div class="bp-card-gradient"></div>
-  <div class="bp-card-info"><div class="bp-card-name">Kara</div><div class="bp-card-role">Bridesmaid</div></div>
+<!-- Kara - Placeholder -->
+<div class="bp-card-sm-placeholder">
+  <div class="bp-ph-bg" style="background:linear-gradient(135deg,#D4A5C9,#C9A0DC,#B898C8)"></div>
+  <div class="bp-ph-content">
+    <div class="bp-ph-ornament">✦ ✦ ✦</div>
+    <div class="bp-ph-initials">K</div>
+    <div class="bp-ph-name">Kara</div>
+    <div class="bp-ph-role">Bridesmaid</div>
+  </div>
 </div>
 </div>
 
 <div class="bp-divider fade-in"><div class="bp-divider-line"></div><div class="bp-divider-text">Groomsmen</div><div class="bp-divider-line"></div></div>
 <div class="bp-grid fade-in">
-<!-- Elisha - replace src with real photo -->
-<div class="bp-card-sm">
-  <img class="bp-card-img" src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=500&h=700&fit=crop&crop=top" alt="Elisha">
-  <div class="bp-card-gradient"></div>
-  <div class="bp-card-info"><div class="bp-card-name">Elisha</div><div class="bp-card-role">Groomsman</div></div>
+<!-- Elisha - Placeholder -->
+<div class="bp-card-sm-placeholder">
+  <div class="bp-ph-bg" style="background:linear-gradient(135deg,#8B7FA8,#A898C0,#9688B4)"></div>
+  <div class="bp-ph-content">
+    <div class="bp-ph-ornament">✦ ✦ ✦</div>
+    <div class="bp-ph-initials">E</div>
+    <div class="bp-ph-name">Elisha</div>
+    <div class="bp-ph-role">Groomsman</div>
+  </div>
 </div>
-<!-- Julio -->
-<div class="bp-card-sm">
-  <img class="bp-card-img" src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=500&h=700&fit=crop&crop=top" alt="Julio">
-  <div class="bp-card-gradient"></div>
-  <div class="bp-card-info"><div class="bp-card-name">Julio</div><div class="bp-card-role">Groomsman</div></div>
+<!-- Julio - Placeholder -->
+<div class="bp-card-sm-placeholder">
+  <div class="bp-ph-bg" style="background:linear-gradient(135deg,#7A6F98,#9484B4,#8478A8)"></div>
+  <div class="bp-ph-content">
+    <div class="bp-ph-ornament">✦ ✦ ✦</div>
+    <div class="bp-ph-initials">J</div>
+    <div class="bp-ph-name">Julio</div>
+    <div class="bp-ph-role">Groomsman</div>
+  </div>
 </div>
-<!-- Matthew -->
-<div class="bp-card-sm">
-  <img class="bp-card-img" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=500&h=700&fit=crop&crop=top" alt="Matthew">
-  <div class="bp-card-gradient"></div>
-  <div class="bp-card-info"><div class="bp-card-name">Matthew</div><div class="bp-card-role">Groomsman</div></div>
+<!-- Matthew - Placeholder -->
+<div class="bp-card-sm-placeholder">
+  <div class="bp-ph-bg" style="background:linear-gradient(135deg,#A898C0,#8B7FA8,#9688B4)"></div>
+  <div class="bp-ph-content">
+    <div class="bp-ph-ornament">✦ ✦ ✦</div>
+    <div class="bp-ph-initials">M</div>
+    <div class="bp-ph-name">Matthew</div>
+    <div class="bp-ph-role">Groomsman</div>
+  </div>
 </div>
-<!-- Andre -->
-<div class="bp-card-sm">
-  <img class="bp-card-img" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=500&h=700&fit=crop&crop=top" alt="Andre">
-  <div class="bp-card-gradient"></div>
-  <div class="bp-card-info"><div class="bp-card-name">Andre</div><div class="bp-card-role">Groomsman</div></div>
+<!-- Andre - Placeholder -->
+<div class="bp-card-sm-placeholder">
+  <div class="bp-ph-bg" style="background:linear-gradient(135deg,#9484B4,#7A6F98,#8478A8)"></div>
+  <div class="bp-ph-content">
+    <div class="bp-ph-ornament">✦ ✦ ✦</div>
+    <div class="bp-ph-initials">A</div>
+    <div class="bp-ph-name">Andre</div>
+    <div class="bp-ph-role">Groomsman</div>
+  </div>
 </div>
 </div>
 
 <div class="bp-divider fade-in"><div class="bp-divider-line"></div><div class="bp-divider-text">Decorator</div><div class="bp-divider-line"></div></div>
 <div class="bp-featured-row fade-in" style="justify-content:center">
-<div class="bp-card">
-  <img class="bp-card-img" src="https://images.unsplash.com/photo-1519741497674-611481863552?w=600&h=800&fit=crop" alt="Events4U">
-  <div class="bp-card-gradient"></div>
-  <div class="bp-card-info">
-    <div class="bp-card-name">Events4U</div>
-    <div class="bp-card-role">Decorator</div>
-    <a class="bp-card-link" href="https://www.instagram.com/_eventz4u" target="_blank">♡ Instagram</a>
+<!-- Events4U - Placeholder -->
+<div class="bp-card-placeholder">
+  <div class="bp-ph-bg" style="background:linear-gradient(135deg,#C9A96E,#E8D5A8,#D4B878)"></div>
+  <div class="bp-ph-content">
+    <div class="bp-ph-ornament">✦ ✦ ✦</div>
+    <div class="bp-ph-initials">E4U</div>
+    <div class="bp-ph-name">Events4U</div>
+    <div class="bp-ph-role">Decorator</div>
+    <a class="bp-card-link" href="https://www.instagram.com/_eventz4u" target="_blank" style="opacity:1;transform:none;margin-top:14px">♡ Instagram</a>
   </div>
 </div>
 </div>
