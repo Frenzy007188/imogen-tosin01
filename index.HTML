@@ -34,6 +34,19 @@ a{text-decoration:none;color:inherit}
 .welcome-btn{margin-top:24px;display:inline-block;padding:14px 48px;background:linear-gradient(135deg,var(--gold),var(--gold-dark));color:#fff;font-family:'Montserrat',sans-serif;font-size:.85rem;font-weight:600;letter-spacing:2px;text-transform:uppercase;border:none;border-radius:50px;cursor:pointer;transition:all .3s;box-shadow:0 4px 20px rgba(201,169,110,.4)}
 .welcome-btn:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(201,169,110,.6)}
 
+/* Welcome donation section */
+.welcome-donation{margin-top:24px;padding-top:20px;border-top:1px solid var(--gold-light)}
+.welcome-donation-title{font-family:'Montserrat',sans-serif;font-size:.7rem;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--gold-dark);margin-bottom:6px;display:flex;align-items:center;justify-content:center;gap:8px}
+.welcome-donation-msg{font-size:1.05rem;line-height:1.7;color:#000;font-weight:500;margin-bottom:14px}
+.welcome-donation-box{background:linear-gradient(135deg,var(--lilac-bg),var(--peach-light));border-radius:14px;padding:16px 20px;text-align:left;border:1px solid var(--lilac-light)}
+.welcome-donation-row{display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:1px solid rgba(184,160,200,.2)}
+.welcome-donation-row:last-child{border-bottom:none}
+.welcome-donation-label{font-family:'Montserrat',sans-serif;font-size:.6rem;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--lilac-dark)}
+.welcome-donation-value{font-family:'Montserrat',sans-serif;font-size:.8rem;font-weight:600;color:var(--dark);letter-spacing:.5px}
+.welcome-copy-btn{display:inline-flex;align-items:center;gap:4px;margin-left:6px;padding:3px 8px;background:transparent;border:1px solid var(--gold);color:var(--gold-dark);font-family:'Montserrat',sans-serif;font-size:.5rem;font-weight:600;letter-spacing:1px;text-transform:uppercase;border-radius:20px;cursor:pointer;transition:all .3s}
+.welcome-copy-btn:hover{background:var(--gold);color:#fff}
+.welcome-copy-btn.copied{background:#4CAF50;border-color:#4CAF50;color:#fff}
+
 #navbar{position:fixed;top:0;left:0;right:0;z-index:1000;padding:0 24px;transition:all .3s}
 #navbar.scrolled{background:rgba(255,249,245,.95);backdrop-filter:blur(12px);box-shadow:0 2px 20px rgba(0,0,0,.08)}
 .nav-inner{max-width:1280px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:72px}
@@ -92,7 +105,6 @@ a{text-decoration:none;color:inherit}
 .gallery-nav.prev{left:16px}
 .gallery-nav.next{right:16px}
 
-/* SPOTIFY PLAYER */
 .spotify-player-wrap{max-width:1000px;margin:32px auto 0;background:linear-gradient(135deg,#1a1a2e,#16213e,#1a1a2e);border-radius:20px;padding:28px 32px;box-shadow:0 12px 40px rgba(0,0,0,.2);position:relative;overflow:hidden}
 .spotify-player-wrap::before{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none'%3E%3Cg fill='%23C9A96E' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");pointer-events:none}
 .spotify-header{display:flex;align-items:center;gap:16px;margin-bottom:20px;position:relative;z-index:1}
@@ -105,23 +117,6 @@ a{text-decoration:none;color:inherit}
 @keyframes pulse-note{0%,100%{opacity:.6;transform:scale(1)}50%{opacity:1;transform:scale(1.1)}}
 .spotify-embed-container{position:relative;z-index:1;border-radius:12px;overflow:hidden}
 .spotify-embed-container iframe{border-radius:12px;display:block}
-
-.gift-section{background:linear-gradient(180deg,var(--cream),var(--lilac-bg),var(--peach-light),var(--lilac-bg),var(--cream));position:relative;overflow:hidden}
-.gift-section::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
-.gift-card{max-width:580px;margin:0 auto;background:#fff;border-radius:24px;padding:40px 36px;text-align:center;border:1px solid var(--gold-light);box-shadow:0 16px 50px rgba(0,0,0,.08);position:relative;overflow:hidden}
-.gift-card::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--lilac),var(--gold),var(--peach))}
-.gift-icon-wrap{width:72px;height:72px;background:linear-gradient(135deg,var(--lilac-bg),var(--peach-light));border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 20px;color:var(--gold-dark);border:2px solid var(--gold-light)}
-.gift-card h3{font-family:'Playfair Display',serif;font-size:1.5rem;color:var(--dark);margin-bottom:8px}
-.gift-card .gift-msg{font-size:1.1rem;line-height:1.8;color:var(--text);margin-bottom:24px;font-weight:500}
-.gift-details{background:linear-gradient(135deg,var(--lilac-bg),var(--peach-light));border-radius:16px;padding:24px 28px;text-align:left;border:1px solid var(--lilac-light)}
-.gift-detail-row{display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid rgba(184,160,200,.2)}
-.gift-detail-row:last-child{border-bottom:none}
-.gift-detail-label{font-family:'Montserrat',sans-serif;font-size:.65rem;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--lilac-dark)}
-.gift-detail-value{font-family:'Montserrat',sans-serif;font-size:.85rem;font-weight:600;color:var(--dark);letter-spacing:.5px}
-.gift-copy-btn{display:inline-flex;align-items:center;gap:5px;margin-left:8px;padding:4px 10px;background:transparent;border:1px solid var(--gold);color:var(--gold-dark);font-family:'Montserrat',sans-serif;font-size:.55rem;font-weight:600;letter-spacing:1px;text-transform:uppercase;border-radius:20px;cursor:pointer;transition:all .3s}
-.gift-copy-btn:hover{background:var(--gold);color:#fff}
-.gift-copy-btn.copied{background:#4CAF50;border-color:#4CAF50;color:#fff}
-.gift-heart{color:var(--peach);font-size:1.4rem;margin-bottom:12px;display:block}
 
 .flip-container{display:flex;flex-direction:column;align-items:center;padding:40px 16px}
 .flip-card{width:400px;height:570px;perspective:1200px;cursor:pointer;-webkit-tap-highlight-color:transparent}
@@ -151,9 +146,6 @@ a{text-decoration:none;color:inherit}
 .bp-card-name{font-family:'Playfair Display',serif;font-size:1.6rem;color:#fff;margin-bottom:4px;text-shadow:0 2px 10px rgba(0,0,0,.4);transition:letter-spacing .4s}
 .bp-card:hover .bp-card-name{letter-spacing:2px}
 .bp-card-role{font-family:'Montserrat',sans-serif;font-size:.65rem;letter-spacing:2.5px;text-transform:uppercase;color:var(--peach);opacity:.9;text-shadow:0 1px 6px rgba(0,0,0,.3)}
-.bp-card-link{display:inline-flex;align-items:center;gap:6px;margin-top:10px;padding:7px 16px;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.3);color:#fff;font-family:'Montserrat',sans-serif;font-size:.6rem;font-weight:500;letter-spacing:1px;text-transform:uppercase;border-radius:50px;cursor:pointer;text-decoration:none;transition:all .3s;opacity:0;transform:translateY(10px)}
-.bp-card:hover .bp-card-link{opacity:1;transform:translateY(0);transition-delay:.1s}
-.bp-card-link:hover{background:rgba(255,255,255,.3);border-color:rgba(255,255,255,.6)}
 
 .bp-card-placeholder{width:280px;height:420px;border-radius:16px;overflow:hidden;position:relative;box-shadow:0 12px 40px rgba(0,0,0,.08);transition:transform .5s cubic-bezier(.4,0,.2,1),box-shadow .5s;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center}
 .bp-card-placeholder:hover{transform:translateY(-8px);box-shadow:0 24px 60px rgba(139,111,168,.25)}
@@ -232,7 +224,7 @@ a{text-decoration:none;color:inherit}
 .flip-card{width:300px;height:430px}.section-title{font-size:1.8rem}.section-subtitle{font-size:1.4rem}
 .facilitators-grid{grid-template-columns:1fr 1fr}
 .gallery-slide img{height:500px}
-.welcome-card{padding:28px 20px}.welcome-card h2{font-size:2rem}.welcome-card p{font-size:1.1rem}.welcome-card ul li{font-size:1.05rem}
+.welcome-card{padding:28px 20px}.welcome-card h2{font-size:2rem}.welcome-card p{font-size:1.1rem}.welcome-card ul li{font-size:1.05rem}.welcome-donation-msg{font-size:.95rem}.welcome-donation-row{flex-direction:column;align-items:flex-start;gap:4px}.welcome-copy-btn{margin-left:0;margin-top:4px}
 .password-card{padding:32px 20px}.venue-card{padding:24px 16px}
 .facilitator-card{padding:20px 14px}.download-btn{padding:10px 20px;font-size:.65rem}
 .section{padding:60px 16px}
@@ -242,7 +234,6 @@ a{text-decoration:none;color:inherit}
 .bp-divider-text{font-size:1.3rem}
 .bp-card-placeholder{width:240px;height:360px}.bp-card-placeholder .bp-ph-initials{font-size:2.8rem}.bp-card-placeholder .bp-ph-name{font-size:1.2rem}
 .bp-card-sm-placeholder .bp-ph-initials{font-size:2.2rem}.bp-card-sm-placeholder .bp-ph-name{font-size:1rem}
-.gift-card{padding:28px 20px}.gift-detail-row{flex-direction:column;align-items:flex-start;gap:4px}.gift-copy-btn{margin-left:0;margin-top:4px}
 }
 @media(max-width:480px){
 .hero-names{font-size:2.5rem}.flip-card{width:270px;height:385px}
@@ -254,7 +245,7 @@ a{text-decoration:none;color:inherit}
 .spotify-player-wrap{border-radius:16px}.spotify-header{gap:12px}.spotify-vinyl{width:44px;height:44px}
 .bp-card-placeholder{width:80%;max-width:300px;height:380px}.bp-card-placeholder .bp-ph-initials{font-size:2.5rem}
 .bp-card-sm-placeholder .bp-ph-initials{font-size:2rem}.bp-card-sm-placeholder .bp-ph-name{font-size:.9rem}
-.gift-card{padding:24px 16px}.gift-details{padding:18px 16px}
+.welcome-donation-box{padding:14px 14px}
 }
 </style>
 </head>
@@ -273,6 +264,27 @@ a{text-decoration:none;color:inherit}
 <li>Most importantly, come ready to laugh, dance, celebrate, and create unforgettable memories with us.</li>
 </ul>
 <p>Your love, presence, and prayers mean the world to us, and we are truly honored to share this special day with you.</p>
+
+<!-- DONATION SECTION INSIDE WELCOME -->
+<div class="welcome-donation">
+<div class="welcome-donation-title">♡ Donation</div>
+<p class="welcome-donation-msg">For those who wish to give a gift, we would appreciate monetary contributions. Please see our bank details below:</p>
+<div class="welcome-donation-box">
+<div class="welcome-donation-row">
+<span class="welcome-donation-label">Account Name</span>
+<span class="welcome-donation-value">Oluwatosin Borode<button class="welcome-copy-btn" onclick="copyToClipboard('Oluwatosin Borode',this)"><i data-lucide="copy" style="width:10px;height:10px"></i> Copy</button></span>
+</div>
+<div class="welcome-donation-row">
+<span class="welcome-donation-label">Account Number</span>
+<span class="welcome-donation-value">00669353<button class="welcome-copy-btn" onclick="copyToClipboard('00669353',this)"><i data-lucide="copy" style="width:10px;height:10px"></i> Copy</button></span>
+</div>
+<div class="welcome-donation-row">
+<span class="welcome-donation-label">Sort Code</span>
+<span class="welcome-donation-value">04-07-0<button class="welcome-copy-btn" onclick="copyToClipboard('04-07-0',this)"><i data-lucide="copy" style="width:10px;height:10px"></i> Copy</button></span>
+</div>
+</div>
+</div>
+
 <div class="welcome-sign">With Love, Imogen & Tosin</div>
 <button class="welcome-btn" onclick="closeWelcome()">Enter Website</button>
 </div>
@@ -334,7 +346,6 @@ a{text-decoration:none;color:inherit}
 <button class="gallery-nav next" onclick="moveGallery(1)"><i data-lucide="chevron-right" style="width:20px;height:20px"></i></button>
 </div>
 
-<!-- SPOTIFY PLAYER -->
 <div class="spotify-player-wrap fade-in" id="musicPlayer">
 <div class="spotify-header">
 <div class="spotify-vinyl"></div>
@@ -351,36 +362,6 @@ a{text-decoration:none;color:inherit}
 
 </div>
 </div>
-
-<!-- DONATION SECTION -->
-<div class="gift-section section" id="gift">
-<div class="section-inner">
-<div class="ornament">✦</div>
-<h2 class="section-title fade-in">Donation</h2>
-<p class="section-subtitle fade-in">A contribution to our new beginning</p>
-<div class="gift-card fade-in">
-<div class="gift-icon-wrap"><i data-lucide="gift" style="width:28px;height:28px"></i></div>
-<span class="gift-heart">♡</span>
-<h3>Your Presence Is Our Present</h3>
-<p class="gift-msg">For those who wish to give a gift, we would appreciate monetary contributions. Please see our bank details below:</p>
-<div class="gift-details">
-<div class="gift-detail-row">
-<span class="gift-detail-label">Account Name</span>
-<span class="gift-detail-value">Oluwatosin Borode<button class="gift-copy-btn" onclick="copyToClipboard('Oluwatosin Borode',this)"><i data-lucide="copy" style="width:10px;height:10px"></i> Copy</button></span>
-</div>
-<div class="gift-detail-row">
-<span class="gift-detail-label">Account Number</span>
-<span class="gift-detail-value">00669353<button class="gift-copy-btn" onclick="copyToClipboard('00669353',this)"><i data-lucide="copy" style="width:10px;height:10px"></i> Copy</button></span>
-</div>
-<div class="gift-detail-row">
-<span class="gift-detail-label">Sort Code</span>
-<span class="gift-detail-value">04-07-0<button class="gift-copy-btn" onclick="copyToClipboard('04-07-0',this)"><i data-lucide="copy" style="width:10px;height:10px"></i> Copy</button></span>
-</div>
-</div>
-</div>
-</div>
-</div>
-
 </div>
 
 <!-- ===== TRADITIONAL WEDDING ===== -->
